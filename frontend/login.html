@@ -1,0 +1,264 @@
+<!--
+CENTENARYO Login Interface
+==========================
+
+Purpose: Secure authentication for OSCA staff members
+Connects to: index.html (start screen), dashboard.html (after login)
+Dependencies: Pico.css (libs/pico.min.css), styles.css, login.css
+
+This redesigned interface provides:
+- Modern, professional authentication experience
+- Consistent sizing and spacing system
+- Cohesive color scheme
+- Responsive design for all window sizes
+- Clean, government-appropriate aesthetics
+
+Authentication flow:
+1. User enters credentials and selects role
+2. Form validation and backend authentication
+3. Redirect to appropriate dashboard based on role
+4. Session management and security logging
+
+Used by: All OSCA staff members for system access
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - CENTENARYO</title>
+    <!-- Pico.css (local) -->
+    <link rel="stylesheet" href="libs/pico.min.css">
+    <!-- Global styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="login-page">
+
+    <div class="login-container">
+        <div class="login-card">
+            <!-- Logo -->
+            <div class="login-logo">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" stroke="#2C5282" stroke-width="3" fill="white"/>
+                    <text x="50" y="65" text-anchor="middle" font-size="32" fill="#2C5282" font-family="Arial, sans-serif" font-weight="bold">C</text>
+                </svg>
+            </div>
+
+            <!-- Header -->
+            <div class="login-header">
+                <h1>Sign In</h1>
+                <p>Office of the Senior Citizens Affairs</p>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="login-form">
+                <!-- Username -->
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <div class="input-wrapper">
+                        <input 
+                            type="text" 
+                            id="username" 
+                            name="username" 
+                            placeholder="Enter your username" 
+                            required 
+                            autocomplete="username"
+                            autofocus
+                        >
+                    </div>
+                </div>
+                
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            placeholder="Enter your password" 
+                            required
+                            autocomplete="current-password"
+                        >
+                        <button type="button" id="togglePassword" class="password-toggle" aria-label="Toggle password visibility">
+                            <!-- Eye icon (open) -->
+                            <svg id="eyeOpen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                            <!-- Eye icon (closed) -->
+                            <svg id="eyeClosed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.45 18.45 0 0 1-5.06 5.94M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+                                <line x1="4" y1="4" x2="20" y2="20"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Options -->
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        <span class="checkbox-custom"></span>
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" id="forgotPassword" class="forgot-link">Forgot password?</a>
+                </div>
+                
+                <!-- Submit -->
+                <button type="submit" class="login-button">
+                    <span>Sign In</span>
+                    <div class="button-spinner" style="display: none;"></div>
+                </button>
+            </form>
+
+            <!-- Footer -->
+            <div class="login-footer">
+                <a href="index.html" class="back-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7"></path>
+                    </svg>
+                    Back to Start
+                </a>
+                <p class="help-text">Need help? Contact your system administrator</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>Authenticating...</p>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const loginForm = document.getElementById('loginForm');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const togglePasswordBtn = document.getElementById('togglePassword');
+        const eyeOpen = document.getElementById('eyeOpen');
+        const eyeClosed = document.getElementById('eyeClosed');
+        const forgotPasswordLink = document.getElementById('forgotPassword');
+        const loginButton = document.querySelector('.login-button');
+        const buttonText = loginButton.querySelector('span');
+        const buttonSpinner = loginButton.querySelector('.button-spinner');
+        const loadingOverlay = document.getElementById('loadingOverlay');
+
+        // Password toggle
+        togglePasswordBtn.addEventListener('click', function() {
+            const type = passwordInput.type === 'password' ? 'text' : 'password';
+            passwordInput.type = type;
+            
+            if (type === 'text') {
+                eyeOpen.style.display = 'none';
+                eyeClosed.style.display = 'block';
+            } else {
+                eyeOpen.style.display = 'block';
+                eyeClosed.style.display = 'none';
+            }
+        });
+
+        // Forgot password
+        forgotPasswordLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            showMessage('Please contact your system administrator to reset your password.', 'info');
+        });
+
+        // Form submission
+        loginForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value;
+
+            // Validation
+            if (!username || !password) {
+                showMessage('Please fill in all fields.', 'error');
+                return;
+            }
+
+            // Show loading
+            setLoading(true);
+
+            try {
+                // Simulate authentication
+                await authenticate(username, password);
+                
+            } catch (error) {
+                showMessage(error.message, 'error');
+                setLoading(false);
+            }
+        });
+
+        // Authentication simulation
+        async function authenticate(username, password) {
+            // Simulate delay
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            
+            // Demo credentials (roles assigned during account creation)
+            const credentials = {
+                'admin': { password: 'admin123', role: 'Administrator' },
+                'encoder1': { password: 'encoder123', role: 'Encoder / Staff' },
+                'auditor1': { password: 'auditor123', role: 'Auditor' },
+                'viewer1': { password: 'viewer123', role: 'Viewer' }
+            };
+
+            const user = credentials[username];
+            
+            if (!user || user.password !== password) {
+                throw new Error('Invalid username or password.');
+            }
+
+            showMessage('Login successful! Redirecting...', 'success');
+            
+            // Simulate redirect
+            setTimeout(() => {
+                showMessage(`Welcome ${username}! (${user.role}) Dashboard would open here.`, 'success');
+                setLoading(false);
+            }, 1000);
+        }
+
+        // Loading state
+        function setLoading(loading) {
+            if (loading) {
+                buttonText.style.display = 'none';
+                buttonSpinner.style.display = 'block';
+                loginButton.classList.add('loading');
+                loginButton.disabled = true;
+            } else {
+                buttonText.style.display = 'inline';
+                buttonSpinner.style.display = 'none';
+                loginButton.classList.remove('loading');
+                loginButton.disabled = false;
+            }
+        }
+
+        // Message display
+        function showMessage(message, type) {
+            // Remove existing
+            const existing = document.querySelector('.message');
+            if (existing) existing.remove();
+
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message message-${type}`;
+            messageDiv.innerHTML = `
+                <span class="message-icon">${type === 'success' ? '✓' : type === 'error' ? '✕' : 'ℹ'}</span>
+                <span class="message-text">${message}</span>
+            `;
+            
+            loginForm.insertBefore(messageDiv, loginForm.firstChild);
+            
+            // Auto remove
+            setTimeout(() => messageDiv.remove(), type === 'error' ? 5000 : 8000);
+        }
+
+        // Auto focus
+        usernameInput.focus();
+    </script>
+</body>
+</html>

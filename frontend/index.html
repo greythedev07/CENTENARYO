@@ -1,0 +1,178 @@
+<!--
+CENTENARYO Start Screen
+======================
+
+Purpose: Welcome screen and navigation hub for CENTENARYO system
+Connects to: main.py (PyWebView launcher), login.html, register.html
+Dependencies: Pico.css (libs/pico.min.css), styles.css
+
+This is the main entry point that provides:
+- Animated splash screen with CENTENARYO branding
+- Navigation to login and registration
+- System information and offline status
+- Professional government system presentation
+
+Navigation options:
+- login.html - Existing user authentication
+- register.html - New user registration (admin only)
+- System information display
+
+Used by: First-time users, system administrators
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centenaryo – OSCA System</title>
+    <!-- Pico.css (local) -->
+    <link rel="stylesheet" href="libs/pico.min.css">
+    <!-- Global styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        .splash {
+            background: linear-gradient(-45deg, #1e3a5f, #2d5a8e, #1e3a5f, #0f1f35) !important;
+            background-size: 400% 400% !important;
+            animation: gradientShift 4s ease infinite !important;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .splash-content {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .splash-content .logo svg {
+            animation: pulseScale 2s ease-in-out infinite;
+            display: inline-block;
+        }
+        @keyframes pulseScale {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+        .loader {
+            border: 3px solid rgba(255, 255, 255, 0.3) !important;
+            border-top-color: white !important;
+            border-right-color: white !important;
+            animation: spin 0.6s linear infinite !important;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .loading-text {
+            animation: pulseOpacity 1.2s ease-in-out infinite;
+        }
+        @keyframes pulseOpacity {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="start-page">
+
+    <!-- LOADING SCREEN (splash) -->
+    <div id="splashScreen" class="splash">
+        <div class="splash-content">
+            <div class="logo">
+                <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" stroke="#2C5282" stroke-width="4" fill="white"/>
+                    <text x="50" y="65" text-anchor="middle" font-size="40" fill="#2C5282" font-family="Arial">C</text>
+                </svg>
+            </div>
+            <h1>CENTENARYO</h1>
+            <p>Senior Citizens Affairs Management System</p>
+            <div class="loader"></div>
+            <p class="loading-text">Initializing system...</p>
+        </div>
+    </div>
+
+    <!-- START SCREEN (shown after splash) -->
+    <div id="startScreen" class="start-container" style="display: none;">
+        <main class="container">
+            <div class="start-card">
+                <div class="start-header">
+                    <div class="logo-small">
+                        <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="45" stroke="#2C5282" stroke-width="4" fill="white"/>
+                            <text x="50" y="65" text-anchor="middle" font-size="30" fill="#2C5282" font-family="Arial">C</text>
+                        </svg>
+                    </div>
+                    <h1>CENTENARYO</h1>
+                    <p>Office of the Senior Citizens Affairs</p>
+                    <p class="subtitle">Centralized Management System</p>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="login.html" class="btn-primary">
+                        🚪 Sign In
+                    </a>
+                    
+                    <a href="register.html" class="btn-secondary">
+                        📝 Register New User
+                    </a>
+                </div>
+
+                <footer class="start-footer">
+                    <p>&copy; 2026 CENTENARYO • LGU OSCA Management System</p>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Startup sequence
+        window.addEventListener('DOMContentLoaded', async () => {
+            const splash = document.getElementById('splashScreen');
+            const startScreen = document.getElementById('startScreen');
+            
+            // Check if splash has already been shown this session
+            const hasSeenSplash = sessionStorage.getItem('splashShown');
+            
+            if (hasSeenSplash) {
+                // Skip splash, show start screen immediately
+                splash.style.display = 'none';
+                startScreen.style.display = 'block';
+                return;
+            }
+            
+            // Mark splash as shown for this session
+            sessionStorage.setItem('splashShown', 'true');
+            
+            // Show splash for 3 seconds, then transition to start screen
+            setTimeout(() => {
+                splash.style.opacity = '0';
+                splash.style.transition = 'opacity 0.8s ease';
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                    startScreen.style.display = 'block';
+                    startScreen.style.opacity = '0';
+                    startScreen.style.transition = 'opacity 0.5s ease';
+                    setTimeout(() => { startScreen.style.opacity = '1'; }, 50);
+                }, 800);
+            }, 3000);
+        });
+
+        // Log navigation events
+        function logNavigation(action) {
+            if (window.pywebview && window.pywebview.api) {
+                window.pywebview.api.log_message('info', `Navigation: ${action}`);
+            }
+        }
+
+        // Add click tracking to navigation links
+        document.querySelectorAll('a[href]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                logNavigation(`Navigate to ${e.target.href}`);
+            });
+        });
+    </script>
+</body>
+</html>

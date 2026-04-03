@@ -1,0 +1,332 @@
+<!--
+CENTENARYO User Registration
+============================
+
+Purpose: Administrator interface for creating new user accounts
+Connects to: index.html (start screen), login.html (existing users)
+Dependencies: Pico.css, styles.css, login.css
+
+This interface provides:
+- Account creation for OSCA staff members
+- Role assignment during registration
+- Administrator-only access
+- Consistent styling with login interface
+
+Registration flow:
+1. Admin enters new user details
+2. Selects appropriate role for the user
+3. Form validation and account creation
+4. Confirmation and optional credential display
+
+Used by: System administrators only
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register New User - CENTENARYO</title>
+    <!-- Pico.css (local) -->
+    <link rel="stylesheet" href="libs/pico.min.css">
+    <!-- Global styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Page-specific styles (shared with login) -->
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="login-page">
+
+    <div class="login-container">
+        <div class="login-card">
+            <!-- Logo -->
+            <div class="login-logo">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" stroke="#ffffff" stroke-width="3" fill="none"/>
+                    <text x="50" y="65" text-anchor="middle" font-size="32" fill="#ffffff" font-family="Arial, sans-serif" font-weight="bold">C</text>
+                </svg>
+            </div>
+
+            <!-- Header -->
+            <div class="login-header">
+                <h1>Register New User</h1>
+                <p>Create a new OSCA staff account</p>
+            </div>
+
+            <!-- Registration Form -->
+            <form id="registerForm" class="login-form">
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <div class="input-wrapper">
+                        <input 
+                            type="text" 
+                            id="fullName" 
+                            name="fullName" 
+                            placeholder="Enter full name" 
+                            required 
+                            autocomplete="name"
+                            autofocus
+                        >
+                    </div>
+                </div>
+
+                <!-- Username -->
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <div class="input-wrapper">
+                        <input 
+                            type="text" 
+                            id="username" 
+                            name="username" 
+                            placeholder="Choose a username" 
+                            required 
+                            autocomplete="username"
+                            minlength="4"
+                        >
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-wrapper">
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="Enter email address" 
+                            required 
+                            autocomplete="email"
+                        >
+                    </div>
+                </div>
+
+                <!-- Role Selection -->
+                <div class="form-group">
+                    <label for="role">Access Role</label>
+                    <div class="input-wrapper">
+                        <select id="role" name="role" required>
+                            <option value="" disabled selected>Select a role</option>
+                            <option value="Administrator">Administrator</option>
+                            <option value="Encoder / Staff">Encoder / Staff</option>
+                            <option value="Auditor">Auditor</option>
+                            <option value="Viewer">Viewer</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Temporary Password</label>
+                    <div class="input-wrapper">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            placeholder="Set temporary password" 
+                            required
+                            autocomplete="new-password"
+                            minlength="8"
+                        >
+                        <button type="button" id="togglePassword" class="password-toggle" aria-label="Toggle password visibility">
+                            <!-- Eye icon (open) -->
+                            <svg id="eyeOpen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                            <!-- Eye icon (closed) -->
+                            <svg id="eyeClosed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.45 18.45 0 0 1-5.06 5.94M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+                                <line x1="4" y1="4" x2="20" y2="20"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="input-wrapper">
+                        <input 
+                            type="password" 
+                            id="confirmPassword" 
+                            name="confirmPassword" 
+                            placeholder="Confirm temporary password" 
+                            required
+                            autocomplete="new-password"
+                        >
+                    </div>
+                </div>
+                
+                <!-- Submit -->
+                <button type="submit" class="login-button">
+                    <span>Create Account</span>
+                    <div class="button-spinner" style="display: none;"></div>
+                </button>
+            </form>
+
+            <!-- Footer -->
+            <div class="login-footer">
+                <a href="index.html" class="back-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7"></path>
+                    </svg>
+                    Back to Start
+                </a>
+                <p class="help-text">Administrator access required</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>Creating account...</p>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const registerForm = document.getElementById('registerForm');
+        const fullNameInput = document.getElementById('fullName');
+        const usernameInput = document.getElementById('username');
+        const emailInput = document.getElementById('email');
+        const roleSelect = document.getElementById('role');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        const togglePasswordBtn = document.getElementById('togglePassword');
+        const eyeOpen = document.getElementById('eyeOpen');
+        const eyeClosed = document.getElementById('eyeClosed');
+        const registerButton = document.querySelector('.login-button');
+        const buttonText = registerButton.querySelector('span');
+        const buttonSpinner = registerButton.querySelector('.button-spinner');
+
+        // Password toggle
+        togglePasswordBtn.addEventListener('click', function() {
+            const type = passwordInput.type === 'password' ? 'text' : 'password';
+            passwordInput.type = type;
+            confirmPasswordInput.type = type;
+            
+            if (type === 'text') {
+                eyeOpen.style.display = 'none';
+                eyeClosed.style.display = 'block';
+            } else {
+                eyeOpen.style.display = 'block';
+                eyeClosed.style.display = 'none';
+            }
+        });
+
+        // Form submission
+        registerForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const fullName = fullNameInput.value.trim();
+            const username = usernameInput.value.trim();
+            const email = emailInput.value.trim();
+            const role = roleSelect.value;
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+
+            // Validation
+            if (!fullName || !username || !email || !role || !password || !confirmPassword) {
+                showMessage('Please fill in all fields.', 'error');
+                return;
+            }
+
+            // Username validation
+            if (username.length < 4) {
+                showMessage('Username must be at least 4 characters long.', 'error');
+                return;
+            }
+
+            // Email validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                showMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            // Password validation
+            if (password.length < 8) {
+                showMessage('Password must be at least 8 characters long.', 'error');
+                return;
+            }
+
+            // Password match
+            if (password !== confirmPassword) {
+                showMessage('Passwords do not match.', 'error');
+                return;
+            }
+
+            // Show loading
+            setLoading(true);
+
+            try {
+                // Simulate account creation
+                await createAccount(fullName, username, email, role, password);
+                
+            } catch (error) {
+                showMessage(error.message, 'error');
+                setLoading(false);
+            }
+        });
+
+        // Account creation simulation
+        async function createAccount(fullName, username, email, role, password) {
+            // Simulate delay
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            
+            // Check if username exists (simulated)
+            const existingUsers = ['admin', 'encoder1', 'auditor1', 'viewer1'];
+            if (existingUsers.includes(username.toLowerCase())) {
+                throw new Error('Username already exists. Please choose a different username.');
+            }
+
+            showMessage(`Account created successfully for ${fullName}!`, 'success');
+            
+            // Reset form after success
+            setTimeout(() => {
+                registerForm.reset();
+                setLoading(false);
+            }, 2000);
+        }
+
+        // Loading state
+        function setLoading(loading) {
+            if (loading) {
+                buttonText.style.display = 'none';
+                buttonSpinner.style.display = 'block';
+                registerButton.classList.add('loading');
+                registerButton.disabled = true;
+            } else {
+                buttonText.style.display = 'inline';
+                buttonSpinner.style.display = 'none';
+                registerButton.classList.remove('loading');
+                registerButton.disabled = false;
+            }
+        }
+
+        // Message display
+        function showMessage(message, type) {
+            // Remove existing
+            const existing = document.querySelector('.message');
+            if (existing) existing.remove();
+
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message message-${type}`;
+            messageDiv.innerHTML = `
+                <span class="message-icon">${type === 'success' ? '✓' : type === 'error' ? '✕' : 'ℹ'}</span>
+                <span class="message-text">${message}</span>
+            `;
+            
+            registerForm.insertBefore(messageDiv, registerForm.firstChild);
+            
+            // Auto remove
+            setTimeout(() => messageDiv.remove(), type === 'error' ? 5000 : 8000);
+        }
+
+        // Auto focus
+        fullNameInput.focus();
+    </script>
+</body>
+</html>

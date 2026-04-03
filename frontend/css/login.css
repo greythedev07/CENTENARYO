@@ -1,0 +1,478 @@
+/*
+CENTENARYO Login Interface - Complete Redesign
+=============================================
+
+Purpose: Modern, professional authentication interface
+Dependencies: Pico.css, styles.css
+
+This stylesheet provides:
+- Consistent sizing and spacing system
+- Cohesive color scheme (blue primary)
+- Responsive design that fits various window sizes
+- Professional government-appropriate styling
+- Clean, modern aesthetics
+
+Design System:
+- Spacing: 0.5rem (8px), 1rem (16px), 1.5rem (24px), 2rem (32px)
+- Colors: Blue primary (#2563eb), gray scale, white
+- Border radius: 8px standard
+- Shadows: Subtle elevation system
+*/
+
+/* ========== CSS VARIABLES (matching styles.css) ========== */
+:root {
+  /* Institutional color palette */
+  --primary: #1e3a5f;
+  --primary-dark: #0f1f35;
+  --primary-light: #2d5a8e;
+  --accent: #b8860b;
+  --accent-light: #daa520;
+  --danger: #c53030;
+  --warning: #d69e2e;
+  --success: #276749;
+  --gray-bg: #f5f7fa;
+  --gray-light: #e2e8f0;
+  --gray-medium: #64748b;
+  --gray-dark: #1e293b;
+  
+  /* Extended colors */
+  --color-white: #ffffff;
+  --color-error: #c53030;
+  --color-success: #276749;
+  --color-info: #1e3a5f;
+  
+  /* Spacing (matching index.css) */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  
+  /* Border radius (matching index.css) */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  
+  /* Shadows - more subtle and professional */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+}
+
+/* ========== PAGE LAYOUT ========== */
+.login-page {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ========== CONTAINER ========== */
+.login-container {
+  width: 100%;
+  max-width: min(420px, 90vw);
+  margin: auto;
+  padding: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+
+/* ========== CARD ========== */
+.login-card {
+  padding: var(--space-lg);
+  box-sizing: border-box;
+  width: 100%;
+  margin-block: auto;
+}
+
+/* ========== LOGO ========== */
+.login-logo {
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.login-logo svg {
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.077));
+}
+
+/* ========== HEADER ========== */
+.login-header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.login-header h1 {
+  color: var(--color-white);
+  font-size: 2rem;
+  font-weight: 700;
+  margin: var(--space-md) 0 var(--space-xs) 0;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.login-header p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* ========== FORM ========== */
+.login-form {
+  margin-bottom: var(--space-lg);
+}
+
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper input,
+.input-wrapper select {
+  width: 100%;
+  padding: var(--space-xs) var(--space-sm);
+  padding-right: 2.5rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-white);
+  box-sizing: border-box;
+  height: 44px;
+}
+
+/* Custom select styling */
+.input-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.7)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-sm) center;
+  background-size: 20px;
+  padding-right: 2.75rem;
+}
+
+.input-wrapper select option {
+  background: var(--primary);
+  color: var(--color-white);
+  padding: var(--space-sm);
+  font-size: 1rem;
+}
+
+.input-wrapper select option:first-child {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.input-wrapper select:focus {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.9)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.input-wrapper input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.input-wrapper input:focus,
+.input-wrapper select:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ========== PASSWORD TOGGLE ========== */
+.password-toggle {
+  position: absolute;
+  right: var(--space-sm);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-xs);
+  color: var(--gray-medium);
+  transition: color 0.2s ease;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-toggle:hover {
+  color: var(--primary);
+  background: rgba(44, 82, 130, 0.05);
+}
+
+.password-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ========== FORM OPTIONS ========== */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+  font-size: var(--font-size-sm);
+}
+
+/* ========== CHECKBOX ========== */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.checkbox-label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox-custom {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  background: transparent;
+}
+
+.checkbox-custom::after {
+  content: '';
+  width: 5px;
+  height: 9px;
+  border: solid var(--color-white);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.checkbox-label input:checked ~ .checkbox-custom {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.checkbox-label input:checked ~ .checkbox-custom::after {
+  opacity: 1;
+}
+
+/* ========== LINK ========== */
+.forgot-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+}
+
+.forgot-link:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+/* ========== BUTTON ========== */
+.login-button {
+  width: 100%;
+  padding: var(--space-sm) var(--space-lg);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  color: var(--primary);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+.login-button:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
+}
+
+.login-button:active {
+  transform: translateY(0);
+}
+
+.login-button.loading {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.button-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid var(--color-white);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ========== MESSAGES ========== */
+.message {
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  animation: slideDown 0.3s ease;
+  font-weight: 500;
+  font-size: var(--space-sm);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: var(--color-error);
+}
+
+.message-success {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: var(--color-success);
+}
+
+.message-info {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: var(--color-info);
+}
+
+/* ========== FOOTER ========== */
+.login-footer {
+  text-align: center;
+  margin-top: var(--space-xl);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--radius-md);
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  margin-bottom: var(--space-sm);
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+.back-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.7);
+  color: var(--color-white);
+}
+
+.back-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+.help-text {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+/* ========== LOADING OVERLAY ========== */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.loading-content {
+  background: var(--color-white);
+  padding: var(--space-xl);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.loading-content .spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--gray-light);
+  border-top: 3px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto var(--space-md) auto;
+}
+
+.loading-content p {
+  margin: 0;
+  color: var(--gray-dark);
+  font-weight: 500;
+  font-size: var(--space-md);
+}

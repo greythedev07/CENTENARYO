@@ -1,0 +1,602 @@
+/*
+CENTENARYO Global Stylesheet
+============================
+
+Purpose: Global CSS variables, base styles, and reusable components
+Connects to: All frontend HTML pages via <link> tags
+Dependencies: Pico.css framework (libs/pico.min.css)
+
+This file contains the core styling system for CENTENARYO including:
+- CSS custom properties for consistent theming
+- Base HTML element styles and resets
+- Reusable component classes (.card, .btn-primary, .data-table)
+- Utility classes for common layout needs
+- Responsive design base styles
+
+Used by: All HTML pages as the foundation stylesheet
+*/
+
+/* ========== CSS VARIABLES (matching styles.css) ========== */
+:root {
+  /* Use same colors as styles.css */
+  --primary: #2C5282;
+  --primary-dark: #1A365D;
+  --primary-light: #4299E1;
+  --danger: #E53E3E;
+  --warning: #ED8936;
+  --success: #38A169;
+  --gray-bg: #F7FAFC;
+  --gray-light: #E2E8F0;
+  --gray-medium: #718096;
+  --gray-dark: #2D3748;
+  
+  /* Extended colors */
+  --color-white: #ffffff;
+  --color-error: #E53E3E;
+  --color-success: #38A169;
+  --color-info: #2C5282;
+  
+  /* Spacing (matching index.css) */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+  
+  /* Border radius (matching index.css) */
+  --radius-sm: 0.5rem;     /* 8px */
+  --radius-md: 0.75rem;   /* 12px */
+  --radius-lg: 1rem;      /* 16px */
+  --radius-xl: 1.5rem;    /* 24px */
+  
+  /* Shadows (matching index.css) */
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--gray-bg);
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--gray-dark);
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+/* Ensure full viewport coverage for all pages */
+body.start-page {
+    background-color: var(--primary);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body.login-page {
+    background-color: var(--primary);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body.register-page {
+    background-color: var(--primary);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ========== REUSABLE COMPONENT CLASSES ========== */
+.card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: var(--spacing);
+    box-shadow: var(--shadow);
+    margin-bottom: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 500;
+    text-align: center;
+}
+
+.btn-secondary {
+    background-color: var(--gray-light);
+    color: var(--gray-dark);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--gray-light);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 500;
+    text-align: center;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    font-size: 1rem;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th, .data-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--gray-light);
+    text-align: left;
+}
+
+.data-table th {
+    background-color: var(--gray-bg);
+    font-weight: 600;
+}
+
+/* ========== FORM COMPONENTS ========== */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--gray-dark);
+}
+
+.form-group small {
+    display: block;
+    margin-top: 0.25rem;
+    color: var(--gray-medium);
+    font-size: 0.875rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-section {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.form-section:last-child {
+    border-bottom: none;
+}
+
+/* ========== LOADING AND ANIMATION STYLES ========== */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.loading-content {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--gray-light);
+    border-top: 4px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-message, .success-message {
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.error-message {
+    background: #FED7D7;
+    color: var(--danger);
+    border: 1px solid #FC8181;
+}
+
+.success-message {
+    background: #C6F6D5;
+    color: var(--success);
+    border: 1px solid #9AE6B4;
+}
+
+/* ========== SPLASH SCREEN STYLES ========== */
+.splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.splash-content {
+    text-align: center;
+    color: white;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.splash-content .logo svg {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+    }
+    50% {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+    }
+}
+
+.splash-content h1 {
+    font-size: 3rem;
+    margin: 2rem 0 1rem 0;
+    font-weight: 300;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+    50% {
+        opacity: 0.95;
+        text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    }
+}
+
+.splash-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    animation: fadeIn 1s ease-out 0.3s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.9;
+    }
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid white;
+    border-right: 3px solid white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 1rem auto;
+}
+
+.loader-dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin: 0 auto 1rem auto;
+}
+
+.loader-dots span {
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    animation: bounce 1.4s ease-in-out infinite both;
+}
+
+.loader-dots span:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.loader-dots span:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+.loader-dots span:nth-child(3) {
+    animation-delay: 0s;
+}
+
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.loading-text {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    animation: pulseText 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseText {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* ========== UTILITY CLASSES ========== */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 1rem; }
+.mt-4 { margin-top: 1.5rem; }
+
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+
+.hidden { display: none; }
+.visible { display: block; }
+
+.offline-badge {
+    background: var(--success);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    display: inline-block;
+}
+
+/* ========== RESPONSIVE DESIGN BASE ========== */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 95%;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .btn-full-mobile {
+        width: 100%;
+    }
+    
+    .splash-content h1 {
+        font-size: 2rem;
+    }
+    
+    .splash-content p {
+        font-size: 1rem;
+    }
+    
+    .card {
+        margin: 0 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        margin: 0 0.25rem;
+        padding: 0.75rem;
+    }
+    
+    .btn-primary, .btn-secondary {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+    
+    .data-table {
+        font-size: 0.875rem;
+    }
+    
+    .data-table th, .data-table td {
+        padding: 0.5rem;
+    }
+}
+
+/* ========== CONTAINER SIZING FIXES ========== */
+.container {
+    max-width: 100%;
+    padding: 0 1rem;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 90vw;
+        padding: 0 1rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 85vw;
+        padding: 0 1rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    .container {
+        max-width: 80vw;
+        padding: 0 1rem;
+    }
+}
+
+/* ========== MOBILE-FIRST RESPONSIVE UTILITIES ========== */
+@media (max-width: 640px) {
+    .hide-mobile {
+        display: none !important;
+    }
+    
+    .show-mobile {
+        display: block !important;
+    }
+    
+    .text-center-mobile {
+        text-align: center;
+    }
+    
+    .flex-col-mobile {
+        flex-direction: column;
+    }
+    
+    .gap-1-mobile {
+        gap: 0.5rem;
+    }
+    
+    .w-full-mobile {
+        width: 100%;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+@media (min-width: 641px) {
+    .hide-desktop {
+        display: none !important;
+    }
+    
+    .show-desktop {
+        display: block !important;
+    }
+}
+
+/* ========== TABLET SPECIFIC ========== */
+@media (min-width: 641px) and (max-width: 1024px) {
+    .container {
+        max-width: 90%;
+        padding: 0 1.5rem;
+    }
+    
+    .card {
+        padding: 1.5rem;
+    }
+}
+
+/* ========== LARGE DESKTOP ========== */
+@media (min-width: 1201px) {
+    .container {
+        max-width: 1000px;
+    }
+}

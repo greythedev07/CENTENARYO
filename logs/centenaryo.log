@@ -1,0 +1,296 @@
+2026-04-03 17:05:59,812 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:05:59,813 - __main__ - INFO - Mode: Development
+2026-04-03 17:05:59,813 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:05:59,814 - __main__ - ERROR - Failed to create window: create_window() got an unexpected keyword argument 'on_loaded'
+2026-04-03 17:05:59,814 - __main__ - ERROR - Application error: create_window() got an unexpected keyword argument 'on_loaded'
+2026-04-03 17:05:59,814 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:06:25,839 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:06:25,839 - __main__ - INFO - Mode: Development
+2026-04-03 17:06:25,840 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:06:25,842 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:06:37,759 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:07:14,529 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:07:14,530 - __main__ - INFO - Mode: Development
+2026-04-03 17:07:14,530 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:07:14,531 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:07:22,870 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:10:06,876 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:10:06,876 - __main__ - INFO - Mode: Development
+2026-04-03 17:10:06,877 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:10:06,877 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:12:04,673 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:13:07,420 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:13:07,420 - __main__ - INFO - Mode: Development
+2026-04-03 17:13:07,420 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:13:07,421 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:13:16,309 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:15:58,434 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:15:58,434 - __main__ - INFO - Mode: Development
+2026-04-03 17:15:58,434 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:15:58,435 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:19:03,771 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:19:10,326 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:19:10,329 - __main__ - INFO - Mode: Development
+2026-04-03 17:19:10,329 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:19:10,331 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:21:14,081 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:21:17,683 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:21:17,683 - __main__ - INFO - Mode: Development
+2026-04-03 17:21:17,683 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:21:17,684 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:21:29,015 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:22:51,673 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:22:51,674 - __main__ - INFO - Mode: Development
+2026-04-03 17:22:51,674 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:22:51,675 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:24:26,920 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:28:04,942 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:28:04,942 - __main__ - INFO - Mode: Development
+2026-04-03 17:28:04,942 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:28:04,943 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:29:53,214 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:29:55,973 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:29:55,974 - __main__ - INFO - Mode: Development
+2026-04-03 17:29:55,974 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:29:55,975 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:30:36,804 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:30:41,420 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:30:41,421 - __main__ - INFO - Mode: Development
+2026-04-03 17:30:41,421 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:30:41,422 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:30:57,945 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:31:02,378 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:31:02,378 - __main__ - INFO - Mode: Development
+2026-04-03 17:31:02,379 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:31:02,379 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:31:10,005 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:31:17,425 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:31:17,426 - __main__ - INFO - Mode: Development
+2026-04-03 17:31:17,426 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:31:17,426 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:31:55,218 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:32:43,345 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:32:43,346 - __main__ - INFO - Mode: Development
+2026-04-03 17:32:43,346 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:32:43,346 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:33:53,382 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:33:55,344 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:33:55,345 - __main__ - INFO - Mode: Development
+2026-04-03 17:33:55,345 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:33:55,346 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:35:58,541 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:36:18,523 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:36:18,524 - __main__ - INFO - Mode: Development
+2026-04-03 17:36:18,524 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:36:18,525 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:38:02,622 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:39:47,293 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:39:47,293 - __main__ - INFO - Mode: Development
+2026-04-03 17:39:47,294 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:39:47,294 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:41:33,148 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:41:35,282 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:41:35,283 - __main__ - INFO - Mode: Development
+2026-04-03 17:41:35,283 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:41:35,283 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:43:37,914 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:43:40,512 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:43:40,513 - __main__ - INFO - Mode: Development
+2026-04-03 17:43:40,513 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:43:40,514 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:43:54,487 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:46:30,150 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:46:30,150 - __main__ - INFO - Mode: Development
+2026-04-03 17:46:30,151 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:46:30,151 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:47:30,722 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:48:49,240 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:48:49,240 - __main__ - INFO - Mode: Development
+2026-04-03 17:48:49,240 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:48:49,241 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:51:34,815 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:51:37,569 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:51:37,570 - __main__ - INFO - Mode: Development
+2026-04-03 17:51:37,570 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:51:37,571 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:53:40,145 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:53:42,223 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:53:42,223 - __main__ - INFO - Mode: Development
+2026-04-03 17:53:42,223 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:53:42,224 - __main__ - INFO - Window created: 1200x800
+2026-04-03 17:54:27,083 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:57:24,272 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:57:24,273 - __main__ - INFO - Mode: Development
+2026-04-03 17:57:24,274 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:57:24,275 - __main__ - INFO - Window created: 1000x700
+2026-04-03 17:58:41,236 - __main__ - INFO - Application shutdown complete
+2026-04-03 17:58:49,353 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 17:58:49,353 - __main__ - INFO - Mode: Development
+2026-04-03 17:58:49,354 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 17:58:49,354 - __main__ - INFO - Window created: 1000x700
+2026-04-03 17:59:59,690 - __main__ - INFO - Application shutdown complete
+2026-04-03 18:00:33,897 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 18:00:33,898 - __main__ - INFO - Mode: Development
+2026-04-03 18:00:33,898 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 18:00:33,899 - __main__ - INFO - Window created: 1000x700
+2026-04-03 18:01:54,720 - __main__ - INFO - Application shutdown complete
+2026-04-03 18:01:57,574 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 18:01:57,575 - __main__ - INFO - Mode: Development
+2026-04-03 18:01:57,575 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 18:01:57,576 - __main__ - INFO - Window created: 1000x700
+2026-04-03 18:02:08,967 - __main__ - INFO - Application shutdown complete
+2026-04-03 18:02:45,471 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 18:02:45,471 - __main__ - INFO - Mode: Development
+2026-04-03 18:02:45,472 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 18:02:45,472 - __main__ - INFO - Window created: 1000x700
+2026-04-03 18:03:06,473 - __main__ - INFO - Application shutdown complete
+2026-04-03 18:05:21,496 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 18:05:21,497 - __main__ - INFO - Mode: Development
+2026-04-03 18:05:21,497 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 18:05:21,498 - __main__ - INFO - Window created: 1000x700
+2026-04-03 18:06:46,916 - __main__ - INFO - Application shutdown complete
+2026-04-03 18:40:39,378 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 18:40:39,379 - __main__ - INFO - Mode: Development
+2026-04-03 18:40:39,381 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 18:40:39,383 - __main__ - INFO - Window created: 1000x700
+2026-04-03 18:40:54,545 - __main__ - INFO - Application shutdown complete
+2026-04-03 18:43:29,568 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 18:43:29,568 - __main__ - INFO - Mode: Development
+2026-04-03 18:43:29,569 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 18:43:29,570 - __main__ - INFO - Window created: 1000x700
+2026-04-03 18:44:22,073 - __main__ - INFO - Application shutdown complete
+2026-04-03 19:05:16,619 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 19:05:16,620 - __main__ - INFO - Mode: Development
+2026-04-03 19:05:16,620 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 19:05:16,621 - __main__ - INFO - Window created: 1000x700
+2026-04-03 19:05:59,928 - __main__ - INFO - Application shutdown complete
+2026-04-03 19:06:02,371 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 19:06:02,371 - __main__ - INFO - Mode: Development
+2026-04-03 19:06:02,371 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 19:06:02,372 - __main__ - INFO - Window created: 1000x700
+2026-04-03 19:07:33,808 - __main__ - INFO - Application shutdown complete
+2026-04-03 19:12:26,425 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 19:12:26,426 - __main__ - INFO - Mode: Development
+2026-04-03 19:12:26,426 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 19:12:26,427 - __main__ - INFO - Window created: 1000x700
+2026-04-03 19:14:08,103 - __main__ - INFO - Application shutdown complete
+2026-04-03 19:24:43,724 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 19:24:43,724 - __main__ - INFO - Mode: Development
+2026-04-03 19:24:43,725 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 19:24:43,725 - __main__ - INFO - Window created: 1000x700
+2026-04-03 19:34:12,371 - __main__ - INFO - Application shutdown complete
+2026-04-03 19:34:14,448 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 19:34:14,448 - __main__ - INFO - Mode: Development
+2026-04-03 19:34:14,448 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 19:34:14,449 - __main__ - INFO - Window created: 1000x700
+2026-04-03 20:31:21,263 - __main__ - INFO - Application shutdown complete
+2026-04-03 20:31:27,211 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 20:31:27,212 - __main__ - INFO - Mode: Development
+2026-04-03 20:31:27,212 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 20:31:27,213 - __main__ - INFO - Window created: 1000x700
+2026-04-03 20:33:25,178 - __main__ - INFO - Application shutdown complete
+2026-04-03 20:33:51,278 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 20:33:51,278 - __main__ - INFO - Mode: Development
+2026-04-03 20:33:51,278 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 20:33:51,279 - __main__ - INFO - Window created: 1000x700
+2026-04-03 20:35:02,606 - __main__ - INFO - Application shutdown complete
+2026-04-03 20:40:46,011 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 20:40:46,011 - __main__ - INFO - Mode: Development
+2026-04-03 20:40:46,011 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 20:40:46,012 - __main__ - INFO - Window created: 1000x700
+2026-04-03 20:41:02,189 - __main__ - INFO - Application shutdown complete
+2026-04-03 21:12:50,075 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 21:12:50,075 - __main__ - INFO - Mode: Development
+2026-04-03 21:12:50,075 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 21:12:50,076 - __main__ - INFO - Window created: 1000x700
+2026-04-03 21:15:23,472 - __main__ - INFO - Application shutdown complete
+2026-04-03 21:27:26,653 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 21:27:26,653 - __main__ - INFO - Mode: Development
+2026-04-03 21:27:26,654 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 21:27:26,654 - __main__ - INFO - Window created: 1000x700
+2026-04-03 21:30:45,101 - __main__ - INFO - Application shutdown complete
+2026-04-03 21:30:47,899 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 21:30:47,899 - __main__ - INFO - Mode: Development
+2026-04-03 21:30:47,900 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 21:30:47,901 - __main__ - INFO - Window created: 1000x700
+2026-04-03 21:39:33,694 - __main__ - INFO - Application shutdown complete
+2026-04-03 21:39:37,138 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 21:39:37,138 - __main__ - INFO - Mode: Development
+2026-04-03 21:39:37,138 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 21:39:37,139 - __main__ - INFO - Window created: 1000x700
+2026-04-03 21:43:54,590 - __main__ - INFO - Application shutdown complete
+2026-04-03 21:43:58,283 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 21:43:58,283 - __main__ - INFO - Mode: Development
+2026-04-03 21:43:58,283 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 21:43:58,284 - __main__ - INFO - Window created: 1000x700
+2026-04-03 21:45:33,109 - __main__ - INFO - Application shutdown complete
+2026-04-03 21:45:39,460 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 21:45:39,460 - __main__ - INFO - Mode: Development
+2026-04-03 21:45:39,461 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 21:45:39,461 - __main__ - INFO - Window created: 1000x700
+2026-04-03 21:45:52,102 - __main__ - INFO - Application shutdown complete
+2026-04-03 21:45:55,609 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 21:45:55,609 - __main__ - INFO - Mode: Development
+2026-04-03 21:45:55,609 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 21:45:55,610 - __main__ - INFO - Window created: 1000x700
+2026-04-03 21:46:03,996 - __main__ - INFO - Application shutdown complete
+2026-04-03 21:46:35,986 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 21:46:35,987 - __main__ - INFO - Mode: Development
+2026-04-03 21:46:35,987 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 21:46:35,987 - __main__ - INFO - Window created: 1000x700
+2026-04-03 21:52:34,924 - __main__ - INFO - Application shutdown complete
+2026-04-03 21:52:37,585 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 21:52:37,585 - __main__ - INFO - Mode: Development
+2026-04-03 21:52:37,585 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 21:52:37,586 - __main__ - INFO - Window created: 1000x700
+2026-04-03 21:53:44,764 - __main__ - INFO - Application shutdown complete
+2026-04-03 21:54:40,032 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 21:54:40,033 - __main__ - INFO - Mode: Development
+2026-04-03 21:54:40,033 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 21:54:40,034 - __main__ - INFO - Window created: 1000x700
+2026-04-03 21:58:22,116 - __main__ - INFO - Application shutdown complete
+2026-04-03 21:58:26,362 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 21:58:26,362 - __main__ - INFO - Mode: Development
+2026-04-03 21:58:26,362 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 21:58:26,363 - __main__ - INFO - Window created: 1000x700
+2026-04-03 22:01:50,592 - __main__ - INFO - Application shutdown complete
+2026-04-03 22:01:53,429 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 22:01:53,429 - __main__ - INFO - Mode: Development
+2026-04-03 22:01:53,429 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 22:01:53,430 - __main__ - INFO - Window created: 1000x700
+2026-04-03 22:04:08,158 - __main__ - INFO - Application shutdown complete
+2026-04-03 22:04:11,563 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 22:04:11,564 - __main__ - INFO - Mode: Development
+2026-04-03 22:04:11,564 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 22:04:11,564 - __main__ - INFO - Window created: 1000x700
+2026-04-03 22:04:39,692 - __main__ - INFO - Application shutdown complete
+2026-04-03 22:13:25,647 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 22:13:25,647 - __main__ - INFO - Mode: Development
+2026-04-03 22:13:25,647 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 22:13:25,648 - __main__ - INFO - Window created: 1000x700
+2026-04-03 22:13:34,258 - __main__ - INFO - Application shutdown complete
+2026-04-03 22:16:51,720 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 22:16:51,721 - __main__ - INFO - Mode: Development
+2026-04-03 22:16:51,721 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 22:16:51,723 - __main__ - INFO - Window created: 1000x700
+2026-04-03 22:17:00,215 - __main__ - INFO - Application shutdown complete
+2026-04-03 22:17:03,296 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 22:17:03,297 - __main__ - INFO - Mode: Development
+2026-04-03 22:17:03,297 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 22:17:03,297 - __main__ - INFO - Window created: 1000x700
+2026-04-03 22:17:11,675 - __main__ - INFO - Application shutdown complete
+2026-04-03 22:18:04,614 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 22:18:04,615 - __main__ - INFO - Mode: Development
+2026-04-03 22:18:04,615 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 22:18:04,616 - __main__ - INFO - Window created: 1000x700
+2026-04-03 22:18:26,902 - __main__ - INFO - Application shutdown complete
+2026-04-03 22:20:53,508 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 22:20:53,511 - __main__ - INFO - Mode: Development
+2026-04-03 22:20:53,512 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 22:20:53,513 - __main__ - INFO - Window created: 1000x700
+2026-04-03 22:21:22,148 - __main__ - INFO - Application shutdown complete
+2026-04-03 22:30:09,953 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-03 22:30:09,954 - __main__ - INFO - Mode: Development
+2026-04-03 22:30:09,954 - __main__ - INFO - API bridge initialized successfully
+2026-04-03 22:30:10,748 - __main__ - INFO - Window created: 1000x700 at position (268, 82)
+2026-04-03 22:30:24,881 - __main__ - INFO - Application shutdown complete
