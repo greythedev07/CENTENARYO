@@ -1,4 +1,8 @@
 import webview
+import sqlite3
+
+conn = sqlite3.connect('centenaryo.db')
+print("Database connected successfully!")
 
 html_content = """
 <!DOCTYPE html>
