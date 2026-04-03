@@ -32,6 +32,7 @@ if __name__ == '__main__':
         html=html_content,
         width=800,
         height=600,
-        resizable=True
+        resizable=True,
+        min_size=(800, 600)
     )
     webview.start()
