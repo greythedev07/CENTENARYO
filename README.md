@@ -9,7 +9,7 @@ CENTENARYO is an offline-first desktop management system for Local Government Un
 ## TECHSTACK
 
 ### Backend
-- **Python 3.11**: Core business logic, database management, ML processing
+- **Python 3.11-13**: Core business logic, database management, ML processing
 - **SQLite3**: Local relational database for offline operation
 - **PyWebView**: Desktop application wrapper
 

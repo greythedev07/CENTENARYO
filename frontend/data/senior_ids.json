@@ -1,0 +1,982 @@
+[
+  {
+    "id": 1,
+    "senior_id": 1,
+    "qr_code": "51eec312-6de6-401d-9d24-fbb051c330b6",
+    "issue_date": "2021-10-05",
+    "expiry_date": "2026-10-04",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 2,
+    "senior_id": 2,
+    "qr_code": "dbf89cf2-eec0-4330-bf49-2f611c922570",
+    "issue_date": "2021-10-03",
+    "expiry_date": "2026-10-02",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 3,
+    "senior_id": 3,
+    "qr_code": "3cef1c01-f7a7-4577-a64e-b064c3c40bb5",
+    "issue_date": "2024-03-18",
+    "expiry_date": "2029-03-17",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 4,
+    "senior_id": 4,
+    "qr_code": "7cfc720f-507f-4947-8826-bd0547317c31",
+    "issue_date": "2024-01-26",
+    "expiry_date": "2029-01-24",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 5,
+    "senior_id": 5,
+    "qr_code": "20bea568-c5b1-4ba2-b70d-c33b20970cb5",
+    "issue_date": "2023-11-25",
+    "expiry_date": "2028-11-23",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 6,
+    "senior_id": 6,
+    "qr_code": "4bbe3aa9-4fa2-4cbc-9289-60db72d7fc12",
+    "issue_date": "2025-11-12",
+    "expiry_date": "2030-11-11",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 7,
+    "senior_id": 7,
+    "qr_code": "6592175b-c757-4d3f-87b0-58a31e4dda51",
+    "issue_date": "2023-03-24",
+    "expiry_date": "2028-03-22",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 8,
+    "senior_id": 8,
+    "qr_code": "97a9bbb3-923f-460d-8fa7-e23a7ff4b2d9",
+    "issue_date": "2026-03-25",
+    "expiry_date": "2031-03-24",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 9,
+    "senior_id": 9,
+    "qr_code": "37b9e709-dfb7-4f43-bab0-a638107d368f",
+    "issue_date": "2023-06-15",
+    "expiry_date": "2028-06-13",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 10,
+    "senior_id": 10,
+    "qr_code": "a049ff07-8828-4752-a520-e5552225535b",
+    "issue_date": "2023-03-30",
+    "expiry_date": "2028-03-28",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 11,
+    "senior_id": 11,
+    "qr_code": "8ee89650-83bf-4482-b710-89dad563b288",
+    "issue_date": "2023-08-11",
+    "expiry_date": "2028-08-09",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 12,
+    "senior_id": 12,
+    "qr_code": "2745eabb-27ac-4129-aa60-fd9c34a23a46",
+    "issue_date": "2024-11-23",
+    "expiry_date": "2029-11-22",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 13,
+    "senior_id": 13,
+    "qr_code": "c80f87cc-e1fc-424e-8e9d-afbf8b415b5a",
+    "issue_date": "2022-07-16",
+    "expiry_date": "2027-07-15",
+    "printed_by": 3,
+    "is_active": 0,
+    "replacement_reason": "Lost"
+  },
+  {
+    "id": 14,
+    "senior_id": 14,
+    "qr_code": "631daba4-a709-4ba4-9f3a-57e1390df4c7",
+    "issue_date": "2022-06-12",
+    "expiry_date": "2027-06-11",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 15,
+    "senior_id": 15,
+    "qr_code": "f846a9c0-6e84-4afd-8b28-aa15dca52585",
+    "issue_date": "2021-06-14",
+    "expiry_date": "2026-06-13",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 16,
+    "senior_id": 16,
+    "qr_code": "0ed8cba3-e115-41c3-8b45-5639ceac4e0a",
+    "issue_date": "2023-03-01",
+    "expiry_date": "2028-02-28",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 17,
+    "senior_id": 17,
+    "qr_code": "2f3fa684-2ae5-4768-ba17-ae1deef04a0f",
+    "issue_date": "2025-05-24",
+    "expiry_date": "2030-05-23",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 18,
+    "senior_id": 18,
+    "qr_code": "f7b54e88-ac2d-430a-bf5e-825dc1a7b6df",
+    "issue_date": "2021-08-12",
+    "expiry_date": "2026-08-11",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 19,
+    "senior_id": 19,
+    "qr_code": "baa1b0b7-f66f-437d-8c5b-5cb968897e67",
+    "issue_date": "2023-06-14",
+    "expiry_date": "2028-06-12",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 20,
+    "senior_id": 20,
+    "qr_code": "3a4286cd-a77f-44f6-b6f1-496ae329cfde",
+    "issue_date": "2025-03-08",
+    "expiry_date": "2030-03-07",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 22,
+    "senior_id": 22,
+    "qr_code": "88e5b3c3-a0d5-49e5-add3-b1791f080904",
+    "issue_date": "2025-05-15",
+    "expiry_date": "2030-05-14",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 23,
+    "senior_id": 23,
+    "qr_code": "f2427bdd-6551-47bd-9fa9-c04d0854aee4",
+    "issue_date": "2024-08-22",
+    "expiry_date": "2029-08-21",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 24,
+    "senior_id": 24,
+    "qr_code": "b791fc35-f169-4995-acbd-f74bbbcfd36b",
+    "issue_date": "2022-03-17",
+    "expiry_date": "2027-03-16",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 25,
+    "senior_id": 25,
+    "qr_code": "2611abd7-5e81-453b-8409-2043fe05bc5d",
+    "issue_date": "2024-09-10",
+    "expiry_date": "2029-09-09",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 26,
+    "senior_id": 26,
+    "qr_code": "f356b9a3-67b6-47e6-9686-b57eb40b35f0",
+    "issue_date": "2022-12-13",
+    "expiry_date": "2027-12-12",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 27,
+    "senior_id": 27,
+    "qr_code": "d552fefd-8774-4504-a040-8d73b722de4a",
+    "issue_date": "2024-11-08",
+    "expiry_date": "2029-11-07",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 28,
+    "senior_id": 28,
+    "qr_code": "78f9600e-187e-44e9-9939-02aff26802a9",
+    "issue_date": "2024-03-31",
+    "expiry_date": "2029-03-30",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": "Information update"
+  },
+  {
+    "id": 29,
+    "senior_id": 29,
+    "qr_code": "8722593f-45ba-4f80-a757-7bd760b905dc",
+    "issue_date": "2022-08-29",
+    "expiry_date": "2027-08-28",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 30,
+    "senior_id": 30,
+    "qr_code": "22c10705-cf6c-40e8-b251-312b5370b591",
+    "issue_date": "2024-07-28",
+    "expiry_date": "2029-07-27",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 31,
+    "senior_id": 31,
+    "qr_code": "cad08d21-18a0-44f0-ad2d-bb6efa306ab2",
+    "issue_date": "2023-07-28",
+    "expiry_date": "2028-07-26",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 32,
+    "senior_id": 32,
+    "qr_code": "b8afc240-feef-4b82-9db1-285be5ab06b8",
+    "issue_date": "2023-07-16",
+    "expiry_date": "2028-07-14",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 33,
+    "senior_id": 33,
+    "qr_code": "92f91a0d-a2a5-48f0-802f-aede4ef1b2f7",
+    "issue_date": "2025-06-13",
+    "expiry_date": "2030-06-12",
+    "printed_by": 4,
+    "is_active": 0,
+    "replacement_reason": null
+  },
+  {
+    "id": 34,
+    "senior_id": 34,
+    "qr_code": "2a508326-9e58-47f5-b0e9-1714fc0fe23f",
+    "issue_date": "2022-11-16",
+    "expiry_date": "2027-11-15",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": "Damaged"
+  },
+  {
+    "id": 35,
+    "senior_id": 35,
+    "qr_code": "713c9c66-aa05-45ff-b846-fb048a297b5f",
+    "issue_date": "2023-11-11",
+    "expiry_date": "2028-11-09",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 36,
+    "senior_id": 36,
+    "qr_code": "d5b90634-47e1-4a73-9136-133a498b5a29",
+    "issue_date": "2023-07-30",
+    "expiry_date": "2028-07-28",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": "Damaged"
+  },
+  {
+    "id": 37,
+    "senior_id": 37,
+    "qr_code": "284a3788-c2b0-449c-99e7-cc83063b1834",
+    "issue_date": "2025-05-11",
+    "expiry_date": "2030-05-10",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 38,
+    "senior_id": 38,
+    "qr_code": "be808b69-1fe3-4bb8-a971-886e3732750d",
+    "issue_date": "2025-06-08",
+    "expiry_date": "2030-06-07",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 39,
+    "senior_id": 39,
+    "qr_code": "259476ca-837b-491c-bf39-442e7147e21a",
+    "issue_date": "2023-07-15",
+    "expiry_date": "2028-07-13",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 40,
+    "senior_id": 40,
+    "qr_code": "2db28794-4a55-42fc-961f-7f3edd562211",
+    "issue_date": "2022-08-05",
+    "expiry_date": "2027-08-04",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 41,
+    "senior_id": 41,
+    "qr_code": "04be7461-1875-459f-ab12-e708d6797c0c",
+    "issue_date": "2022-03-07",
+    "expiry_date": "2027-03-06",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 42,
+    "senior_id": 42,
+    "qr_code": "d716d5d3-97e9-49f2-865e-e5a2ea05aedb",
+    "issue_date": "2022-07-04",
+    "expiry_date": "2027-07-03",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 43,
+    "senior_id": 43,
+    "qr_code": "8f124be8-1d90-4f34-9ed4-619b02ec977f",
+    "issue_date": "2024-06-04",
+    "expiry_date": "2029-06-03",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": "Information update"
+  },
+  {
+    "id": 44,
+    "senior_id": 44,
+    "qr_code": "2012356a-e589-493d-84d0-1eed76aec819",
+    "issue_date": "2023-06-01",
+    "expiry_date": "2028-05-30",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 45,
+    "senior_id": 45,
+    "qr_code": "a4547818-816c-4198-ad25-21b6b3757de7",
+    "issue_date": "2023-10-02",
+    "expiry_date": "2028-09-30",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 46,
+    "senior_id": 46,
+    "qr_code": "e3ab7446-78cd-4a5c-bbc5-07a62b1432a3",
+    "issue_date": "2022-04-03",
+    "expiry_date": "2027-04-02",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 47,
+    "senior_id": 47,
+    "qr_code": "2c10f931-a6ed-4f16-8b76-50266e999a75",
+    "issue_date": "2022-06-25",
+    "expiry_date": "2027-06-24",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 48,
+    "senior_id": 48,
+    "qr_code": "8e419a7d-ae13-4891-87b2-c70841f97536",
+    "issue_date": "2022-08-16",
+    "expiry_date": "2027-08-15",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 49,
+    "senior_id": 49,
+    "qr_code": "13f0627f-55c1-495a-b13c-5072f190bd9a",
+    "issue_date": "2024-05-21",
+    "expiry_date": "2029-05-20",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 50,
+    "senior_id": 50,
+    "qr_code": "6e4ab0b9-1cef-42a3-9221-9cd750c32a1c",
+    "issue_date": "2024-03-06",
+    "expiry_date": "2029-03-05",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 51,
+    "senior_id": 51,
+    "qr_code": "3673fdde-b1a3-438e-b6d0-4eb0f3d5c9f4",
+    "issue_date": "2022-04-07",
+    "expiry_date": "2027-04-06",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 52,
+    "senior_id": 52,
+    "qr_code": "7685b9e0-a14f-4666-aa50-fe0e9d60a7d8",
+    "issue_date": "2022-12-01",
+    "expiry_date": "2027-11-30",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 53,
+    "senior_id": 53,
+    "qr_code": "6e2c3d2c-f85a-4a99-ad2d-d9cde901bfe2",
+    "issue_date": "2023-11-28",
+    "expiry_date": "2028-11-26",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": "Expired"
+  },
+  {
+    "id": 54,
+    "senior_id": 54,
+    "qr_code": "4464b605-8a0e-4b8e-af03-76703ab26771",
+    "issue_date": "2021-12-28",
+    "expiry_date": "2026-12-27",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 55,
+    "senior_id": 55,
+    "qr_code": "ebb07f0f-c1bd-44d9-a524-5e43095853d9",
+    "issue_date": "2022-07-23",
+    "expiry_date": "2027-07-22",
+    "printed_by": 1,
+    "is_active": 0,
+    "replacement_reason": null
+  },
+  {
+    "id": 56,
+    "senior_id": 56,
+    "qr_code": "8496a5ef-8138-4368-b7dd-7141994154a6",
+    "issue_date": "2023-08-23",
+    "expiry_date": "2028-08-21",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 57,
+    "senior_id": 57,
+    "qr_code": "694c6731-2b4c-436d-b1b7-d9c9db5e2a43",
+    "issue_date": "2026-04-04",
+    "expiry_date": "2031-04-03",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 58,
+    "senior_id": 58,
+    "qr_code": "039896ef-fe2d-4891-b2ee-452629d7eab3",
+    "issue_date": "2025-11-11",
+    "expiry_date": "2030-11-10",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 59,
+    "senior_id": 59,
+    "qr_code": "1b0dcb4c-b58c-44a6-b75b-a6edd3f37bf1",
+    "issue_date": "2025-09-26",
+    "expiry_date": "2030-09-25",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 60,
+    "senior_id": 60,
+    "qr_code": "a9932457-9d95-4877-846f-d0c390804409",
+    "issue_date": "2024-04-21",
+    "expiry_date": "2029-04-20",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 61,
+    "senior_id": 61,
+    "qr_code": "c5243648-1daf-4405-b5d3-0a36d1a1ca66",
+    "issue_date": "2025-10-06",
+    "expiry_date": "2030-10-05",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 62,
+    "senior_id": 62,
+    "qr_code": "f7444f3e-39f3-4ab3-9b81-3186a371a5f1",
+    "issue_date": "2026-04-01",
+    "expiry_date": "2031-03-31",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 63,
+    "senior_id": 63,
+    "qr_code": "e4bb91a1-d54a-4203-80b9-942ed2ed7a9a",
+    "issue_date": "2021-07-23",
+    "expiry_date": "2026-07-22",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 64,
+    "senior_id": 64,
+    "qr_code": "12e79d90-43de-4c33-bb40-d4c13eacdb5b",
+    "issue_date": "2025-10-03",
+    "expiry_date": "2030-10-02",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 65,
+    "senior_id": 65,
+    "qr_code": "8998239f-f2f4-4393-9c18-79dab92d6dfd",
+    "issue_date": "2022-12-05",
+    "expiry_date": "2027-12-04",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 66,
+    "senior_id": 66,
+    "qr_code": "02bd717d-125a-4622-95e1-6cd1bd66a48c",
+    "issue_date": "2022-07-12",
+    "expiry_date": "2027-07-11",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 67,
+    "senior_id": 67,
+    "qr_code": "e35c9969-9db6-44ca-9b59-9b65940c419e",
+    "issue_date": "2024-11-16",
+    "expiry_date": "2029-11-15",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 68,
+    "senior_id": 68,
+    "qr_code": "948a40c1-87c3-4791-be84-6d059df650d5",
+    "issue_date": "2022-02-23",
+    "expiry_date": "2027-02-22",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 69,
+    "senior_id": 69,
+    "qr_code": "28b56083-6588-4d06-816d-7d566dcf3ca8",
+    "issue_date": "2023-05-16",
+    "expiry_date": "2028-05-14",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 70,
+    "senior_id": 70,
+    "qr_code": "00db6eaf-3295-48d7-be7f-b28cde92c79a",
+    "issue_date": "2023-04-04",
+    "expiry_date": "2028-04-02",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 71,
+    "senior_id": 71,
+    "qr_code": "19b96869-c90a-486e-804e-c7afd7657297",
+    "issue_date": "2024-04-24",
+    "expiry_date": "2029-04-23",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 72,
+    "senior_id": 72,
+    "qr_code": "90f6ec19-5add-47c3-8509-132791cd9d98",
+    "issue_date": "2022-03-18",
+    "expiry_date": "2027-03-17",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 73,
+    "senior_id": 73,
+    "qr_code": "4f05c54f-a528-4960-847d-0408f1eeb79f",
+    "issue_date": "2022-10-28",
+    "expiry_date": "2027-10-27",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 74,
+    "senior_id": 74,
+    "qr_code": "b64003e6-1b45-4942-bb25-314c90283d5f",
+    "issue_date": "2025-04-15",
+    "expiry_date": "2030-04-14",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 75,
+    "senior_id": 75,
+    "qr_code": "f264e33e-4f1e-4221-b221-6c414f5019c1",
+    "issue_date": "2022-05-09",
+    "expiry_date": "2027-05-08",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 76,
+    "senior_id": 76,
+    "qr_code": "3bb80e9f-55c2-4841-ba3d-14a54ddb728d",
+    "issue_date": "2024-08-10",
+    "expiry_date": "2029-08-09",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 77,
+    "senior_id": 77,
+    "qr_code": "c32f8f09-cd02-4fe9-9b44-f7135d5cb077",
+    "issue_date": "2021-12-01",
+    "expiry_date": "2026-11-30",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 79,
+    "senior_id": 79,
+    "qr_code": "04ea6115-885c-4ea0-ae3f-f212da8269fc",
+    "issue_date": "2022-12-26",
+    "expiry_date": "2027-12-25",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 80,
+    "senior_id": 80,
+    "qr_code": "7be644f8-9066-4a13-9d73-9e6dd456ee98",
+    "issue_date": "2025-11-17",
+    "expiry_date": "2030-11-16",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 81,
+    "senior_id": 81,
+    "qr_code": "8108272a-75bf-4608-b324-e54822a1a7cd",
+    "issue_date": "2025-09-17",
+    "expiry_date": "2030-09-16",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 82,
+    "senior_id": 82,
+    "qr_code": "38ede667-37a3-4dd6-a6b5-166ae04c3039",
+    "issue_date": "2022-03-19",
+    "expiry_date": "2027-03-18",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 83,
+    "senior_id": 83,
+    "qr_code": "cdcee6e8-20eb-499a-b2d7-5a83b4a4435f",
+    "issue_date": "2025-08-11",
+    "expiry_date": "2030-08-10",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 84,
+    "senior_id": 84,
+    "qr_code": "efac0e6b-3c64-4c90-8f39-1df5421e0b73",
+    "issue_date": "2024-09-03",
+    "expiry_date": "2029-09-02",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 85,
+    "senior_id": 85,
+    "qr_code": "2fd321eb-6a67-4154-b7e8-0f16be579e54",
+    "issue_date": "2024-02-22",
+    "expiry_date": "2029-02-20",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 86,
+    "senior_id": 86,
+    "qr_code": "cc7fbd07-55fd-4f4b-a9b3-3172c6540621",
+    "issue_date": "2026-01-31",
+    "expiry_date": "2031-01-30",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 87,
+    "senior_id": 87,
+    "qr_code": "e19c779b-622c-4ef5-8000-ec3283e028b7",
+    "issue_date": "2023-04-23",
+    "expiry_date": "2028-04-21",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 88,
+    "senior_id": 88,
+    "qr_code": "19fc2165-7f67-40ca-bc5a-112418f35de3",
+    "issue_date": "2022-03-16",
+    "expiry_date": "2027-03-15",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 89,
+    "senior_id": 89,
+    "qr_code": "79fc04f1-a963-4735-a202-d6cafa97535a",
+    "issue_date": "2022-06-13",
+    "expiry_date": "2027-06-12",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 90,
+    "senior_id": 90,
+    "qr_code": "61e16145-b2d0-408c-b025-7b12a2da12a0",
+    "issue_date": "2025-05-05",
+    "expiry_date": "2030-05-04",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 91,
+    "senior_id": 91,
+    "qr_code": "d8fb91d4-b425-40fa-be4c-c8744fb8f0e4",
+    "issue_date": "2024-05-21",
+    "expiry_date": "2029-05-20",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 92,
+    "senior_id": 92,
+    "qr_code": "5e6e803c-fc9c-4d1b-a1f9-2b172f355c72",
+    "issue_date": "2023-08-08",
+    "expiry_date": "2028-08-06",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 93,
+    "senior_id": 93,
+    "qr_code": "421eef36-4465-487b-8404-4a5de084b0a1",
+    "issue_date": "2022-05-07",
+    "expiry_date": "2027-05-06",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 94,
+    "senior_id": 94,
+    "qr_code": "3ae00464-19d1-4de7-9a27-cba69dfead74",
+    "issue_date": "2022-10-11",
+    "expiry_date": "2027-10-10",
+    "printed_by": 4,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 95,
+    "senior_id": 95,
+    "qr_code": "8137fa08-fff9-4e51-ad87-fcc5394e37a2",
+    "issue_date": "2023-08-08",
+    "expiry_date": "2028-08-06",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 96,
+    "senior_id": 96,
+    "qr_code": "f2bb8ac4-7bea-49b6-9b98-ea6a53f48ae2",
+    "issue_date": "2025-03-18",
+    "expiry_date": "2030-03-17",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 97,
+    "senior_id": 97,
+    "qr_code": "e5f5a471-f7d1-499c-a962-e88fdf23c5ae",
+    "issue_date": "2023-03-19",
+    "expiry_date": "2028-03-17",
+    "printed_by": 1,
+    "is_active": 1,
+    "replacement_reason": "Damaged"
+  },
+  {
+    "id": 98,
+    "senior_id": 98,
+    "qr_code": "8d6c5457-966b-486f-a022-5d1e3334e345",
+    "issue_date": "2023-04-30",
+    "expiry_date": "2028-04-28",
+    "printed_by": 3,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 99,
+    "senior_id": 99,
+    "qr_code": "efa5109c-911a-41c6-8308-18da10b19228",
+    "issue_date": "2025-11-17",
+    "expiry_date": "2030-11-16",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": null
+  },
+  {
+    "id": 100,
+    "senior_id": 100,
+    "qr_code": "41c495f0-cb78-48fa-8294-e0032bcbc6ea",
+    "issue_date": "2024-02-06",
+    "expiry_date": "2029-02-04",
+    "printed_by": 2,
+    "is_active": 1,
+    "replacement_reason": null
+  }
+]
