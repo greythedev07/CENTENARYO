@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "senior_id": 32,
+    "flag_reason": "unusual_disbursement_frequency",
+    "risk_score": 0.66,
+    "detected_by": "admin",
+    "detection_date": "2025-11-12 21:49:19",
+    "reviewed_by": null,
+    "review_date": null,
+    "resolution": "pending",
+    "resolution_notes": null
+  },
+  {
+    "id": 2,
+    "senior_id": 48,
+    "flag_reason": "duplicate_record",
+    "risk_score": 0.92,
+    "detected_by": "AI",
+    "detection_date": "2025-10-18 21:49:19",
+    "reviewed_by": 1,
+    "review_date": "2025-11-03 21:49:19",
+    "resolution": "verified_clean",
+    "resolution_notes": "Nothing rather begin lay decision other treatment."
+  },
+  {
+    "id": 3,
+    "senior_id": 84,
+    "flag_reason": "multiple_booklets",
+    "risk_score": 0.84,
+    "detected_by": "AI",
+    "detection_date": "2025-10-13 21:49:19",
+    "reviewed_by": 4,
+    "review_date": "2025-11-10 21:49:19",
+    "resolution": "confirmed_fraud",
+    "resolution_notes": "Market stuff receive ball."
+  },
+  {
+    "id": 4,
+    "senior_id": 13,
+    "flag_reason": "unusual_disbursement_frequency",
+    "risk_score": 0.9,
+    "detected_by": "auditor1",
+    "detection_date": "2026-02-01 21:49:19",
+    "reviewed_by": 3,
+    "review_date": "2026-02-11 21:49:19",
+    "resolution": "verified_clean",
+    "resolution_notes": "Bring walk chair around."
+  },
+  {
+    "id": 5,
+    "senior_id": 17,
+    "flag_reason": "unusual_disbursement_frequency",
+    "risk_score": 0.74,
+    "detected_by": "viewer1",
+    "detection_date": "2025-11-30 21:49:19",
+    "reviewed_by": null,
+    "review_date": null,
+    "resolution": "pending",
+    "resolution_notes": null
+  },
+  {
+    "id": 6,
+    "senior_id": 69,
+    "flag_reason": "age_inconsistency",
+    "risk_score": 0.62,
+    "detected_by": "AI",
+    "detection_date": "2026-02-08 21:49:19",
+    "reviewed_by": null,
+    "review_date": null,
+    "resolution": "pending",
+    "resolution_notes": null
+  },
+  {
+    "id": 7,
+    "senior_id": 1,
+    "flag_reason": "duplicate_record",
+    "risk_score": 0.65,
+    "detected_by": "AI",
+    "detection_date": "2025-11-25 21:49:19",
+    "reviewed_by": null,
+    "review_date": null,
+    "resolution": "pending",
+    "resolution_notes": null
+  },
+  {
+    "id": 8,
+    "senior_id": 71,
+    "flag_reason": "multiple_booklets",
+    "risk_score": 0.76,
+    "detected_by": "encoder1",
+    "detection_date": "2025-10-13 21:49:19",
+    "reviewed_by": null,
+    "review_date": null,
+    "resolution": "pending",
+    "resolution_notes": null
+  },
+  {
+    "id": 9,
+    "senior_id": 99,
+    "flag_reason": "suspicious_claim_pattern",
+    "risk_score": 0.93,
+    "detected_by": "AI",
+    "detection_date": "2026-01-01 21:49:19",
+    "reviewed_by": 3,
+    "review_date": "2026-01-17 21:49:19",
+    "resolution": "verified_clean",
+    "resolution_notes": "Until break blood fine ground example ground."
+  },
+  {
+    "id": 10,
+    "senior_id": 5,
+    "flag_reason": "duplicate_record",
+    "risk_score": 0.67,
+    "detected_by": "AI",
+    "detection_date": "2025-11-28 21:49:19",
+    "reviewed_by": 1,
+    "review_date": "2025-11-30 21:49:19",
+    "resolution": "verified_clean",
+    "resolution_notes": "Pull now parent property drug big."
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "key": "pension_amount",
+    "value": "500.00",
+    "description": "Default monthly pension amount per senior",
+    "updated_at": "2026-01-01 08:00:00",
+    "updated_by": 1
+  },
+  {
+    "key": "current_quarter",
+    "value": "2",
+    "description": "Current quarter for payroll generation",
+    "updated_at": "2026-04-06 21:49:19",
+    "updated_by": 1
+  },
+  {
+    "key": "current_year",
+    "value": "2026",
+    "description": "Current year",
+    "updated_at": "2026-04-06 21:49:19",
+    "updated_by": 1
+  },
+  {
+    "key": "auto_anomaly_detection",
+    "value": "true",
+    "description": "Enable automatic AI anomaly scanning",
+    "updated_at": "2026-01-01 08:00:00",
+    "updated_by": 1
+  },
+  {
+    "key": "system_name",
+    "value": "CENTENARYO",
+    "description": "System name displayed in UI",
+    "updated_at": "2026-01-01 08:00:00",
+    "updated_by": 1
+  },
+  {
+    "key": "backup_retention_days",
+    "value": "30",
+    "description": "Number of days to keep database backups",
+    "updated_at": "2026-01-01 08:00:00",
+    "updated_by": 1
+  }
+]
