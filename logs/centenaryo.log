@@ -1091,6 +1091,7 @@ sqlite3.OperationalError: no such column: updated_at
 2026-04-06 23:36:06,518 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:16251/register.html
 2026-04-06 23:36:10,431 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:16251/register.html
 2026-04-06 23:36:35,282 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:16251/login.html
+<<<<<<< HEAD
 2026-04-07 00:01:19,700 - __main__ - INFO - Application shutdown complete
 2026-04-07 00:02:05,728 - __main__ - INFO - Starting CENTENARYO application...
 2026-04-07 00:02:05,730 - __main__ - INFO - Mode: Development
@@ -1117,3 +1118,5 @@ sqlite3.OperationalError: no such column: updated_at
 2026-04-07 00:09:06,855 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
 2026-04-07 00:09:12,432 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:11483/login.html
 2026-04-07 00:09:21,032 - __main__ - INFO - Application shutdown complete
+=======
+>>>>>>> origin/main
