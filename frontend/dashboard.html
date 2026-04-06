@@ -6,67 +6,75 @@
     <title>CENTENARYO Dashboard</title>
     <link rel="stylesheet" href="libs/pico.min.css">
     <link rel="stylesheet" href="css/styles.css">
-<<<<<<< HEAD
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        .dashboard-page {
+        body {
+            margin: 0;
             background: var(--gray-bg);
+            color: var(--gray-dark);
         }
         .header-topbar {
-            padding: 0.6rem 1rem;
             background: var(--primary);
             color: var(--color-white);
+            padding: 0.75rem 1rem;
         }
-        .header-topbar * {
+        .header-topbar strong,
+        .header-topbar small,
+        .header-topbar a {
             color: var(--color-white);
         }
-        .nav-topbar-sticky {
+        .nav-topbar {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: var(--primary-dark);
+            background: var(--primary-light);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
             padding: 0.5rem 1rem;
-            box-shadow: var(--shadow-sm);
         }
-        .nav-topbar-sticky a {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            padding: 0.45rem 0.7rem;
-            border-radius: var(--radius-sm);
+        .nav-topbar ul {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            white-space: nowrap;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-topbar a {
             display: inline-block;
-            font-size: 0.92rem;
-        }
-        .nav-topbar-sticky a[aria-current="page"] {
-            background: var(--primary);
             color: var(--color-white);
+            text-decoration: none;
+            padding: 0.35rem 0.75rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid transparent;
+            font-size: 0.9rem;
+        }
+        .nav-topbar a[aria-current="page"] {
+            background: rgba(255, 255, 255, 0.22);
+            border-color: rgba(255, 255, 255, 0.3);
             font-weight: 600;
         }
-        .nav-topbar-sticky a:hover {
-            background: rgba(255, 255, 255, 0.14);
+        .nav-topbar a:hover {
+            background: rgba(255, 255, 255, 0.12);
         }
-        .dashboard-main {
+        .dashboard-shell {
             padding: 1rem;
-            display: grid;
-            gap: 1rem;
         }
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 0.75rem;
         }
-        .analytics-grid {
+        .charts-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 0.75rem;
+            margin-top: 1rem;
         }
         .quick-actions {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 0.75rem;
-        }
-        .quick-actions button {
-            min-height: 50px;
-            font-weight: 600;
         }
         .muted {
             color: var(--gray-medium);
@@ -77,66 +85,20 @@
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
-        @media (max-width: 860px) {
-            .analytics-grid {
+        @media (max-width: 900px) {
+            .charts-grid {
                 grid-template-columns: 1fr;
-            }
-        }
-        @media (max-width: 640px) {
-            .quick-actions {
-                grid-template-columns: 1fr;
-            }
-            .nav-topbar-sticky ul {
-                overflow-x: auto;
-                white-space: nowrap;
             }
         }
     </style>
 </head>
-<body class="dashboard-page">
-    <header class="header-topbar">
-        <nav class="container-fluid">
-            <ul>
-                <li><strong>CENTENARYO</strong></li>
-            </ul>
-            <ul>
-                <li><small id="welcomeUserTop">Welcome, Staff User</small></li>
-                <li><a href="#" role="button" class="secondary" id="logoutBtn">Logout</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <nav class="nav-topbar-sticky" aria-label="Dashboard modules">
-        <ul class="container-fluid">
-=======
-    <style>
-        .dashboard-shell { background: var(--gray-bg); min-height: 100vh; }
-        .header-topbar { background: var(--primary-light); color: #fff; padding: 0.75rem 1rem; position: static; }
-        .header-topbar strong, .header-topbar small { color: #fff; }
-        .nav-topbar { position: sticky; top: 0; z-index: 1000; background: var(--primary); border-top: 1px solid rgba(255,255,255,0.2); box-shadow: var(--shadow-sm); }
-        .nav-topbar ul { display: flex; gap: 0.5rem; margin: 0; padding: 0.5rem 1rem; list-style: none; overflow-x: auto; white-space: nowrap; }
-        .nav-topbar a { color: #fff; text-decoration: none; padding: 0.35rem 0.7rem; border-radius: 0.5rem; display: inline-block; }
-        .nav-topbar a[aria-current="page"] { background: var(--primary-dark); font-weight: 600; }
-        .dashboard-content { padding: 1rem; }
-        .metrics-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; }
-        .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-        .quick-actions { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; }
-        .muted { color: var(--gray-medium); }
-        @media (max-width: 1024px) {
-            .metrics-grid, .quick-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        }
-        @media (max-width: 840px) {
-            .charts-grid { grid-template-columns: 1fr; }
-            .metrics-grid, .quick-actions { grid-template-columns: 1fr; }
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body class="dashboard-shell">
+<body>
     <header class="header-topbar">
         <div class="container-fluid">
             <nav>
-                <ul><li><strong>CENTENARYO</strong></li></ul>
+                <ul>
+                    <li><strong>CENTENARYO</strong></li>
+                </ul>
                 <ul>
                     <li><small id="topbarUser">Welcome, Staff User</small></li>
                     <li><a href="#" role="button" class="secondary" id="logoutBtn">Logout</a></li>
@@ -145,9 +107,8 @@
         </div>
     </header>
 
-    <nav class="nav-topbar" aria-label="Primary navigation">
+    <nav class="nav-topbar" aria-label="Primary Navigation">
         <ul>
->>>>>>> origin/main
             <li><a href="#" aria-current="page">Dashboard</a></li>
             <li><a href="#">Senior Records</a></li>
             <li><a href="#">Disbursements / Payroll</a></li>
@@ -158,234 +119,140 @@
         </ul>
     </nav>
 
-<<<<<<< HEAD
-    <main class="dashboard-main container-fluid">
-=======
-    <main class="dashboard-content">
->>>>>>> origin/main
-        <article>
-            <h2 id="welcomeHeader">Good morning, Staff User | OSCA Dashboard</h2>
-            <p class="muted" id="currentDate"></p>
-        </article>
-
-<<<<<<< HEAD
-        <section class="metrics-grid" aria-label="Key Metrics">
+    <main class="dashboard-shell">
+        <section>
             <article>
-                <header>Total Registered Seniors</header>
-                <h3>4,286</h3>
-                <small class="muted">+2.4% vs last month</small>
+                <h2 id="welcomeHeader">Good morning, Staff User | OSCA Dashboard</h2>
+                <p class="muted" id="currentDate"></p>
             </article>
-            <article>
-                <header>Active Pensioners</header>
-                <h3>3,912</h3>
-                <small class="muted">+1.1% vs last month</small>
-            </article>
-            <article>
-                <header>Anomalies Detected (Month)</header>
-                <h3>27</h3>
-                <small class="muted">-12% vs last month</small>
-            </article>
-            <article>
-                <header>Pending Disbursements</header>
-                <h3>143</h3>
-                <small class="muted">Current processing queue</small>
-            </article>
-        </section>
 
-        <section class="analytics-grid" aria-label="Analytics">
-            <article>
-                <h4>Monthly Disbursements (Last 6 Months)</h4>
-                <canvas id="barChart" aria-label="Monthly disbursements bar chart"></canvas>
+            <section class="metrics-grid" aria-label="Key Metrics">
+                <article>
+                    <header>Total Registered Seniors</header>
+                    <h3>4,286</h3>
+                    <small class="muted">+2.4% from last month</small>
+                </article>
+                <article>
+                    <header>Active Pensioners</header>
+                    <h3>3,912</h3>
+                    <small class="muted">+1.1% from last month</small>
+                </article>
+                <article>
+                    <header>Anomalies Detected (this month)</header>
+                    <h3>27</h3>
+                    <small class="muted">-12% from last month</small>
+                </article>
+                <article>
+                    <header>Pending Disbursements</header>
+                    <h3>143</h3>
+                    <small class="muted">Awaiting release</small>
+                </article>
+            </section>
+
+            <section class="charts-grid" aria-label="Analytics">
+                <article>
+                    <h4>Monthly Disbursements (Last 6 Months)</h4>
+                    <canvas id="barChart" aria-label="Monthly disbursements chart"></canvas>
+                </article>
+                <article>
+                    <h4>Anomaly Types (Random Forest Detection)</h4>
+                    <canvas id="pieChart" aria-label="Anomaly types chart"></canvas>
+                </article>
+            </section>
+
+            <article style="margin-top: 1rem;">
+                <h4>Senior Population Trend by Age Group</h4>
+                <canvas id="lineChart" aria-label="Senior trend chart"></canvas>
             </article>
-            <article>
-                <h4>Anomaly Types (Random Forest Detection)</h4>
-                <canvas id="pieChart" aria-label="Anomaly types pie chart"></canvas>
+
+            <article style="margin-top: 1rem;">
+                <h4>Recent Activity</h4>
+                <figure>
+                    <table role="grid">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Activity</th>
+                                <th>Reference</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>2026-04-06</td><td>Senior Registration</td><td>SR-12091</td><td>Completed</td></tr>
+                            <tr><td>2026-04-05</td><td>Pension Disbursement</td><td>PD-48211</td><td>Paid</td></tr>
+                            <tr><td>2026-04-05</td><td>Anomaly Flagged</td><td>AN-30017</td><td>For Review</td></tr>
+                            <tr><td>2026-04-04</td><td>Senior ID Printed</td><td>ID-88420</td><td>Completed</td></tr>
+                            <tr><td>2026-04-04</td><td>Payroll Batch Generated</td><td>PY-11902</td><td>Completed</td></tr>
+                        </tbody>
+                    </table>
+                </figure>
             </article>
-        </section>
 
-        <article>
-            <h4>Senior Population Trend by Age Group</h4>
-            <canvas id="lineChart" aria-label="Senior population line chart"></canvas>
-        </article>
-
-        <article>
-=======
-        <section class="metrics-grid" aria-label="Key metrics">
-            <article><header>Total Registered Seniors</header><h3>4,286</h3><small class="muted">+2.4% from last month</small></article>
-            <article><header>Active Pensioners</header><h3>3,912</h3><small class="muted">+1.1% from last month</small></article>
-            <article><header>Anomalies Detected (this month)</header><h3>27</h3><small class="muted">-12% from last month</small></article>
-            <article><header>Pending Disbursements</header><h3>143</h3><small class="muted">Next payout cycle</small></article>
-        </section>
-
-        <section class="charts-grid" style="margin-top: 1rem;" aria-label="Analytics charts">
-            <article>
-                <h4>Monthly Disbursements (Last 6 Months)</h4>
-                <canvas id="barChart" aria-label="Monthly disbursements chart"></canvas>
-            </article>
-            <article>
-                <h4>Anomaly Types (Random Forest Detection)</h4>
-                <canvas id="pieChart" aria-label="Anomaly types chart"></canvas>
-            </article>
-        </section>
-
-        <article style="margin-top: 1rem;">
-            <h4>Senior Population Trend by Age Group</h4>
-            <canvas id="lineChart" aria-label="Senior population trend chart"></canvas>
-        </article>
-
-        <article style="margin-top: 1rem;">
->>>>>>> origin/main
-            <h4>Recent Activity</h4>
-            <figure>
-                <table role="grid">
-                    <thead>
-<<<<<<< HEAD
-                        <tr>
-                            <th>Date</th>
-                            <th>Activity</th>
-                            <th>Reference</th>
-                            <th>Status</th>
-                        </tr>
-=======
-                        <tr><th>Date</th><th>Activity</th><th>Reference</th><th>Status</th></tr>
->>>>>>> origin/main
-                    </thead>
-                    <tbody>
-                        <tr><td>2026-04-06</td><td>Senior Registration</td><td>SR-12091</td><td>Completed</td></tr>
-                        <tr><td>2026-04-05</td><td>Pension Disbursement</td><td>PD-48211</td><td>Paid</td></tr>
-                        <tr><td>2026-04-05</td><td>Anomaly Flagged</td><td>AN-30017</td><td>For Review</td></tr>
-                        <tr><td>2026-04-04</td><td>Senior ID Printed</td><td>ID-88420</td><td>Completed</td></tr>
-                        <tr><td>2026-04-04</td><td>Payroll Batch Generated</td><td>PY-11902</td><td>Completed</td></tr>
-                    </tbody>
-                </table>
-            </figure>
-        </article>
-
-<<<<<<< HEAD
-        <section class="quick-actions" aria-label="Quick Actions">
-            <button id="actionRegister">New Senior Registration</button>
-            <button class="secondary" id="actionPayroll">Generate Payroll</button>
-            <button class="contrast" id="actionReview">Review Anomalies</button>
-=======
-        <section class="quick-actions" aria-label="Quick actions">
-            <button id="actionRegister">New Senior Registration</button>
-            <button class="secondary" id="actionPayroll">Generate Payroll</button>
-            <button class="contrast" id="actionAnomaly">Review Anomalies</button>
->>>>>>> origin/main
-            <button class="outline" id="actionPrint">Print Senior ID</button>
+            <section class="quick-actions" aria-label="Quick Actions">
+                <button id="actionRegister">New Senior Registration</button>
+                <button class="secondary" id="actionPayroll">Generate Payroll</button>
+                <button class="contrast" id="actionAnomaly">Review Anomalies</button>
+                <button class="outline" id="actionPrint">Print Senior ID</button>
+            </section>
         </section>
     </main>
 
     <script>
-<<<<<<< HEAD
-        function getCurrentUser() {
-            try {
-                const authRaw = localStorage.getItem('centenaryo_auth_state');
-                if (!authRaw) {
-                    return 'Staff User';
-                }
-                const auth = JSON.parse(authRaw);
-                return auth?.user?.username || 'Staff User';
-=======
         function getUserName() {
             try {
-                const raw = localStorage.getItem('centenaryo_auth_state');
-                if (!raw) return 'Staff User';
-                const parsed = JSON.parse(raw);
-                return parsed?.user?.username || 'Staff User';
->>>>>>> origin/main
+                const stateRaw = localStorage.getItem('centenaryo_auth_state');
+                if (!stateRaw) return 'Staff User';
+                const state = JSON.parse(stateRaw);
+                return state?.user?.username || 'Staff User';
             } catch (error) {
                 return 'Staff User';
             }
         }
 
-<<<<<<< HEAD
-        function renderHeader() {
-            const username = getCurrentUser();
+        function setWelcomeText() {
+            const username = getUserName();
             const now = new Date();
-            const hour = now.getHours();
-            const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
+            const greeting = now.getHours() < 12 ? 'Good morning' : now.getHours() < 18 ? 'Good afternoon' : 'Good evening';
             const dateText = now.toLocaleDateString('en-PH', {
                 weekday: 'long',
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'
             });
-
-            document.getElementById('welcomeUserTop').textContent = `Welcome, ${username}`;
+            document.getElementById('topbarUser').textContent = `Welcome, ${username}`;
             document.getElementById('welcomeHeader').textContent = `${greeting}, ${username} | OSCA Dashboard`;
             document.getElementById('currentDate').textContent = dateText;
         }
 
         function renderCharts() {
-            const blue = '#2D5A8E';
-            const blueDark = '#1E3A5F';
-            const green = '#3A7A57';
-=======
-        function setWelcome() {
-            const username = getUserName();
-            const now = new Date();
-            const greeting = now.getHours() < 12 ? 'Good morning' : now.getHours() < 18 ? 'Good afternoon' : 'Good evening';
-            document.getElementById('topbarUser').textContent = `Welcome, ${username}`;
-            document.getElementById('welcomeHeader').textContent = `${greeting}, ${username} | OSCA Dashboard`;
-            document.getElementById('currentDate').textContent = now.toLocaleDateString('en-PH', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-        }
-
-        function makeCharts() {
-            const blue = '#3B82F6';
-            const blueDark = '#1D4ED8';
-            const green = '#16A34A';
->>>>>>> origin/main
-            const gray = '#6B7280';
-            const grid = '#E5E7EB';
+            const blue = '#2d5a8e';
+            const blueDark = '#1e3a5f';
+            const green = '#2f855a';
+            const gray = '#6b7280';
 
             new Chart(document.getElementById('barChart'), {
                 type: 'bar',
                 data: {
                     labels: ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr'],
-<<<<<<< HEAD
                     datasets: [{
                         label: 'Disbursement (PHP)',
                         data: [1120000, 1195000, 1240000, 1218000, 1285000, 1312000],
                         backgroundColor: blue
                     }]
                 },
-                options: {
-                    responsive: true,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        x: { grid: { color: grid }, ticks: { color: gray } },
-                        y: { grid: { color: grid }, ticks: { color: gray } }
-                    }
-                }
-=======
-                    datasets: [{ label: 'Disbursement (PHP)', data: [1120000, 1195000, 1240000, 1218000, 1285000, 1312000], backgroundColor: blue }]
-                },
-                options: { responsive: true, plugins: { legend: { display: false } }, scales: { x: { grid: { color: grid }, ticks: { color: gray } }, y: { grid: { color: grid }, ticks: { color: gray } } } }
->>>>>>> origin/main
+                options: { responsive: true, plugins: { legend: { display: false } } }
             });
 
             new Chart(document.getElementById('pieChart'), {
                 type: 'pie',
                 data: {
                     labels: ['Duplicate Claim', 'Ghost Pensioner', 'ID Mismatch', 'Outlier Amount'],
-<<<<<<< HEAD
                     datasets: [{
                         data: [9, 6, 7, 5],
-                        backgroundColor: [blueDark, blue, green, gray]
+                        backgroundColor: [blueDark, '#2f4f77', green, gray]
                     }]
                 },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: { labels: { color: gray } }
-                    }
-                }
-=======
-                    datasets: [{ data: [9, 6, 7, 5], backgroundColor: [blue, blueDark, green, gray] }]
-                },
-                options: { responsive: true, plugins: { legend: { labels: { color: gray } } } }
->>>>>>> origin/main
+                options: { responsive: true }
             });
 
             new Chart(document.getElementById('lineChart'), {
@@ -393,45 +260,31 @@
                 data: {
                     labels: ['2021', '2022', '2023', '2024', '2025', '2026'],
                     datasets: [
-<<<<<<< HEAD
-                        { label: '60-69', data: [980, 1020, 1080, 1150, 1220, 1270], borderColor: blueDark, tension: 0.3 },
-=======
                         { label: '60-69', data: [980, 1020, 1080, 1150, 1220, 1270], borderColor: blue, tension: 0.3 },
->>>>>>> origin/main
                         { label: '70-79', data: [640, 670, 710, 755, 790, 830], borderColor: green, tension: 0.3 },
                         { label: '80+', data: [280, 300, 325, 340, 360, 390], borderColor: gray, tension: 0.3 }
                     ]
                 },
-<<<<<<< HEAD
-                options: {
-                    responsive: true,
-                    plugins: { legend: { labels: { color: gray } } },
-                    scales: {
-                        x: { grid: { color: grid }, ticks: { color: gray } },
-                        y: { grid: { color: grid }, ticks: { color: gray } }
-                    }
-                }
-            });
-        }
-
-        function bindUI() {
-            document.getElementById('logoutBtn').addEventListener('click', function (event) {
-=======
-                options: { responsive: true, plugins: { legend: { labels: { color: gray } } }, scales: { x: { grid: { color: grid }, ticks: { color: gray } }, y: { grid: { color: grid }, ticks: { color: gray } } } }
+                options: { responsive: true }
             });
         }
 
         function bindActions() {
-            ['actionRegister', 'actionPayroll', 'actionAnomaly', 'actionPrint'].forEach((id) => {
+            const ids = ['actionRegister', 'actionPayroll', 'actionAnomaly', 'actionPrint'];
+            ids.forEach((id) => {
                 const button = document.getElementById(id);
                 button.addEventListener('click', () => {
+                    const base = button.textContent;
                     button.disabled = true;
-                    setTimeout(() => { button.disabled = false; }, 700);
+                    button.textContent = `${base}...`;
+                    setTimeout(() => {
+                        button.disabled = false;
+                        button.textContent = base;
+                    }, 700);
                 });
             });
 
             document.getElementById('logoutBtn').addEventListener('click', (event) => {
->>>>>>> origin/main
                 event.preventDefault();
                 localStorage.removeItem('centenaryo_auth_state');
                 localStorage.removeItem('centenaryo_auth');
@@ -440,17 +293,10 @@
             });
         }
 
-<<<<<<< HEAD
-        window.addEventListener('DOMContentLoaded', function () {
-            renderHeader();
-            renderCharts();
-            bindUI();
-=======
         window.addEventListener('DOMContentLoaded', () => {
-            setWelcome();
-            makeCharts();
+            setWelcomeText();
+            renderCharts();
             bindActions();
->>>>>>> origin/main
         });
     </script>
 </body>
