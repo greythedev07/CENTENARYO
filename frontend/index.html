@@ -143,6 +143,7 @@ Used by: First-time users, system administrators
                     if (authState?.isAuthenticated && authState?.user?.username) {
                         sessionStatus.textContent = `Signed in as ${authState.user.username}`;
                         signInLink.textContent = '🏠 Continue to Home';
+                        signInLink.href = 'dashboard.html';
                     }
                 } catch (error) {
                     sessionStatus.textContent = '';
