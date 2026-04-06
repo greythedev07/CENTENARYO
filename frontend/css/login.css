@@ -476,3 +476,42 @@ Design System:
   font-weight: 500;
   font-size: var(--space-md);
 }
+
+/* ========== TOAST NOTIFICATIONS ========== */
+.toast-container {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1200;
+  display: grid;
+  gap: 8px;
+  max-width: 320px;
+}
+
+.toast {
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid transparent;
+  background: #ffffff;
+  color: #0f172a;
+}
+
+.toast-success {
+  border-color: #bbf7d0;
+  background: #f0fdf4;
+  color: #166534;
+}
+
+.toast-error {
+  border-color: #fecaca;
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.toast-info {
+  border-color: #bfdbfe;
+  background: #eff6ff;
+  color: #1e3a8a;
+}

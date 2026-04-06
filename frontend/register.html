@@ -25,7 +25,7 @@ Used by: System administrators only
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register New User - CENTENARYO</title>
+    <title>Create Account - CENTENARYO</title>
     <!-- Pico.css (local) -->
     <link rel="stylesheet" href="libs/pico.min.css">
     <!-- Global styles -->
@@ -47,8 +47,8 @@ Used by: System administrators only
 
             <!-- Header -->
             <div class="login-header">
-                <h1>Register New User</h1>
-                <p>Create a new OSCA staff account</p>
+                <h1>Create Account</h1>
+                <p>Register a new account to continue</p>
             </div>
 
             <!-- Registration Form -->
@@ -62,7 +62,6 @@ Used by: System administrators only
                             id="fullName" 
                             name="fullName" 
                             placeholder="Enter full name" 
-                            required 
                             autocomplete="name"
                             autofocus
                         >
@@ -74,10 +73,10 @@ Used by: System administrators only
                     <label for="username">Username</label>
                     <div class="input-wrapper">
                         <input 
-                            type="text" 
-                            id="username" 
-                            name="username" 
-                            placeholder="Choose a username" 
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Choose a username"
                             required 
                             autocomplete="username"
                             minlength="4"
@@ -85,47 +84,18 @@ Used by: System administrators only
                     </div>
                 </div>
 
-                <!-- Email -->
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <div class="input-wrapper">
-                        <input 
-                            type="email" 
-                            id="email" 
-                            name="email" 
-                            placeholder="Enter email address" 
-                            required 
-                            autocomplete="email"
-                        >
-                    </div>
-                </div>
-
-                <!-- Role Selection -->
-                <div class="form-group">
-                    <label for="role">Access Role</label>
-                    <div class="input-wrapper">
-                        <select id="role" name="role" required>
-                            <option value="" disabled selected>Select a role</option>
-                            <option value="Administrator">Administrator</option>
-                            <option value="Encoder / Staff">Encoder / Staff</option>
-                            <option value="Auditor">Auditor</option>
-                            <option value="Viewer">Viewer</option>
-                        </select>
-                    </div>
-                </div>
-                
                 <!-- Password -->
                 <div class="form-group">
-                    <label for="password">Temporary Password</label>
+                    <label for="password">Password</label>
                     <div class="input-wrapper">
                         <input 
                             type="password" 
                             id="password" 
                             name="password" 
-                            placeholder="Set temporary password" 
+                            placeholder="Create a strong password"
                             required
                             autocomplete="new-password"
-                            minlength="8"
+                            minlength="6"
                         >
                         <button type="button" id="togglePassword" class="password-toggle" aria-label="Toggle password visibility">
                             <!-- Eye icon (open) -->
@@ -150,7 +120,7 @@ Used by: System administrators only
                             type="password" 
                             id="confirmPassword" 
                             name="confirmPassword" 
-                            placeholder="Confirm temporary password" 
+                            placeholder="Confirm your password"
                             required
                             autocomplete="new-password"
                         >
@@ -159,7 +129,7 @@ Used by: System administrators only
                 
                 <!-- Submit -->
                 <button type="submit" class="login-button">
-                    <span>Create Account</span>
+                    <span>Register</span>
                     <div class="button-spinner" style="display: none;"></div>
                 </button>
             </form>
@@ -172,7 +142,7 @@ Used by: System administrators only
                     </svg>
                     Back to Start
                 </a>
-                <p class="help-text">Administrator access required</p>
+                <p class="help-text">Already have an account? <a href="login.html" class="forgot-link">Sign in</a></p>
             </div>
         </div>
     </div>
@@ -190,8 +160,6 @@ Used by: System administrators only
         const registerForm = document.getElementById('registerForm');
         const fullNameInput = document.getElementById('fullName');
         const usernameInput = document.getElementById('username');
-        const emailInput = document.getElementById('email');
-        const roleSelect = document.getElementById('role');
         const passwordInput = document.getElementById('password');
         const confirmPasswordInput = document.getElementById('confirmPassword');
         const togglePasswordBtn = document.getElementById('togglePassword');
@@ -222,14 +190,12 @@ Used by: System administrators only
             
             const fullName = fullNameInput.value.trim();
             const username = usernameInput.value.trim();
-            const email = emailInput.value.trim();
-            const role = roleSelect.value;
             const password = passwordInput.value;
             const confirmPassword = confirmPasswordInput.value;
 
             // Validation
-            if (!fullName || !username || !email || !role || !password || !confirmPassword) {
-                showMessage('Please fill in all fields.', 'error');
+            if (!username || !password || !confirmPassword) {
+                showMessage('Please fill in all required fields.', 'error');
                 return;
             }
 
@@ -238,17 +204,14 @@ Used by: System administrators only
                 showMessage('Username must be at least 4 characters long.', 'error');
                 return;
             }
-
-            // Email validation
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(email)) {
-                showMessage('Please enter a valid email address.', 'error');
+            if (/\s/.test(username)) {
+                showMessage('Username must not contain spaces.', 'error');
                 return;
             }
 
             // Password validation
-            if (password.length < 8) {
-                showMessage('Password must be at least 8 characters long.', 'error');
+            if (password.length < 6) {
+                showMessage('Password must be at least 6 characters long.', 'error');
                 return;
             }
 
@@ -262,33 +225,34 @@ Used by: System administrators only
             setLoading(true);
 
             try {
-                // Simulate account creation
-                await createAccount(fullName, username, email, role, password);
-                
+                await createAccount(fullName, username, password, confirmPassword);
             } catch (error) {
                 showMessage(error.message, 'error');
                 setLoading(false);
             }
         });
 
-        // Account creation simulation
-        async function createAccount(fullName, username, email, role, password) {
-            // Simulate delay
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            
-            // Check if username exists (simulated)
-            const existingUsers = ['admin', 'encoder1', 'auditor1', 'viewer1'];
-            if (existingUsers.includes(username.toLowerCase())) {
-                throw new Error('Username already exists. Please choose a different username.');
+        async function createAccount(fullName, username, password, confirmPassword) {
+            if (!window.pywebview || !window.pywebview.api || !window.pywebview.api.register) {
+                throw new Error('Registration service is not available.');
             }
 
-            showMessage(`Account created successfully for ${fullName}!`, 'success');
-            
-            // Reset form after success
+            const response = await window.pywebview.api.register({
+                full_name: fullName,
+                username,
+                password,
+                confirm_password: confirmPassword
+            });
+
+            if (!response.ok) {
+                throw new Error(response.error || 'Unable to create account.');
+            }
+
+            showToast('Registration successful.', 'success');
+            showMessage(response.message || 'Account created successfully.', 'success');
             setTimeout(() => {
-                registerForm.reset();
-                setLoading(false);
-            }, 2000);
+                window.location.href = 'login.html';
+            }, 900);
         }
 
         // Loading state
@@ -323,6 +287,28 @@ Used by: System administrators only
             
             // Auto remove
             setTimeout(() => messageDiv.remove(), type === 'error' ? 5000 : 8000);
+        }
+
+        function showToast(message, type = 'info') {
+            const container = getToastContainer();
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            toast.setAttribute('role', 'status');
+            toast.setAttribute('aria-live', 'polite');
+            toast.textContent = message;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3500);
+        }
+
+        function getToastContainer() {
+            let container = document.getElementById('toastContainer');
+            if (!container) {
+                container = document.createElement('div');
+                container.id = 'toastContainer';
+                container.className = 'toast-container';
+                document.body.appendChild(container);
+            }
+            return container;
         }
 
         // Auto focus

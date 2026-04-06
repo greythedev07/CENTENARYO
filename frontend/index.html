@@ -111,7 +111,7 @@ Used by: First-time users, system administrators
                 </div>
 
                 <div class="action-buttons">
-                    <a href="login.html" class="btn-primary">
+                    <a href="login.html" class="btn-primary" id="signInLink">
                         🚪 Sign In
                     </a>
                     
@@ -119,6 +119,7 @@ Used by: First-time users, system administrators
                         📝 Register New User
                     </a>
                 </div>
+                <p id="sessionStatus" class="subtitle" style="margin-top: 0.75rem;"></p>
 
                 <footer class="start-footer">
                     <p>&copy; 2026 CENTENARYO • LGU OSCA Management System</p>
@@ -132,6 +133,21 @@ Used by: First-time users, system administrators
         window.addEventListener('DOMContentLoaded', async () => {
             const splash = document.getElementById('splashScreen');
             const startScreen = document.getElementById('startScreen');
+            const sessionStatus = document.getElementById('sessionStatus');
+            const signInLink = document.getElementById('signInLink');
+
+            const authStateRaw = window.localStorage.getItem('centenaryo_auth_state');
+            if (authStateRaw) {
+                try {
+                    const authState = JSON.parse(authStateRaw);
+                    if (authState?.isAuthenticated && authState?.user?.username) {
+                        sessionStatus.textContent = `Signed in as ${authState.user.username}`;
+                        signInLink.textContent = '🏠 Continue to Home';
+                    }
+                } catch (error) {
+                    sessionStatus.textContent = '';
+                }
+            }
             
             // Check if splash has already been shown this session
             const hasSeenSplash = sessionStorage.getItem('splashShown');

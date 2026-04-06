@@ -27,6 +27,10 @@ from pathlib import Path
 from typing import Optional, Dict, Any, Tuple
 import tkinter as tk
 
+from backend.database import DatabaseManager
+from backend.services.login import LoginService
+from backend.services.registration import RegistrationService
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -38,6 +42,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+
 class CentenaryoApp:
     """Main application class for CENTENARYO desktop application"""
     
@@ -45,6 +50,9 @@ class CentenaryoApp:
         self.window: Optional[webview.Window] = None
         self.is_dev_mode = self._detect_dev_mode()
         self.config = self._load_config()
+        self.database = DatabaseManager()
+        self.login_service = LoginService(self.database)
+        self.registration_service = RegistrationService(self.database)
         
         # Ensure required directories exist
         self._ensure_directories()
@@ -99,38 +107,90 @@ class CentenaryoApp:
         
         return os.path.join(base_path, relative_path)
     
-    def _setup_api_bridge(self) -> Dict[str, Any]:
+    def _setup_api_bridge(self):
         """Setup API bridge between frontend and backend"""
-        api_bridge = {}
+        
+        app = self
+        
+        # Create an API bridge object that pywebview can use
+        class APIBridge:
+            def get_version(self):
+                return app._get_version()
+            
+            def get_config(self):
+                return app._get_config()
+            
+            def is_dev_mode(self):
+                return app.is_dev_mode
+            
+            def log_message(self, level: str, message: str):
+                return app._log_frontend_message(level, message)
+            
+            def get_system_info(self):
+                return app._get_system_info()
+            
+            def register(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+                return app._register_user(payload)
+            
+            def login(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+                return app._login_user(payload)
+            
+            def logout(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+                return app._logout_user(payload)
+            
+            def get_session(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+                return app._get_session(payload)
         
         try:
-            # Import backend services when implemented
-            # from backend.services.senior_service import senior_service
-            # from backend.services.payroll_service import payroll_service
-            # from backend.services.inventory_service import inventory_service
-            # from backend.services.audit_service import audit_service
-            
-            # For now, provide placeholder functions
-            api_bridge = {
-                'get_version': self._get_version,
-                'get_config': self._get_config,
-                'is_dev_mode': lambda: self.is_dev_mode,
-                'log_message': self._log_frontend_message,
-                'get_system_info': self._get_system_info
-            }
-            
+            api_bridge = APIBridge()
             logger.info("API bridge initialized successfully")
+        except Exception as e:
+            logger.warning(f"Backend services error: {e}")
+            # Fallback API bridge with minimal functionality
+            class MinimalAPIBridge:
+                def get_version(self):
+                    return app._get_version()
+                
+                def is_dev_mode(self):
+                    return app.is_dev_mode
+                
+                def log_message(self, level: str, message: str):
+                    return app._log_frontend_message(level, message)
             
-        except ImportError as e:
-            logger.warning(f"Backend services not available: {e}")
-            # Provide minimal API for frontend-only operation
-            api_bridge = {
-                'get_version': self._get_version,
-                'is_dev_mode': lambda: self.is_dev_mode,
-                'log_message': self._log_frontend_message
-            }
+            api_bridge = MinimalAPIBridge()
         
         return api_bridge
+
+    def _register_user(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        try:
+            return self.registration_service.register(
+                full_name=str(payload.get('full_name', '')),
+                username=str(payload.get('username', '')),
+                password=str(payload.get('password', '')),
+                confirm_password=str(payload.get('confirm_password', ''))
+            )
+        except Exception as error:
+            logger.exception("Registration error")
+            return {'ok': False, 'error': f"Registration failed: {error}"}
+
+    def _login_user(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        try:
+            return self.login_service.login(
+                username=str(payload.get('username', '')),
+                password=str(payload.get('password', '')),
+                remember_me=bool(payload.get('remember_me', False))
+            )
+        except Exception as error:
+            logger.exception("Login error")
+            return {'ok': False, 'error': f"Login failed: {error}"}
+
+    def _logout_user(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        token = str(payload.get('token', ''))
+        return self.login_service.logout(token)
+
+    def _get_session(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        token = str(payload.get('token', ''))
+        return self.login_service.get_session(token)
     
     def _get_version(self) -> Dict[str, str]:
         """Get application version information"""

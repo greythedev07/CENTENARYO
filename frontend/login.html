@@ -59,10 +59,10 @@ Used by: All OSCA staff members for system access
                     <label for="username">Username</label>
                     <div class="input-wrapper">
                         <input 
-                            type="text" 
-                            id="username" 
-                            name="username" 
-                            placeholder="Enter your username" 
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Enter your username"
                             required 
                             autocomplete="username"
                             autofocus
@@ -166,7 +166,8 @@ Used by: All OSCA staff members for system access
         // Forgot password
         forgotPasswordLink.addEventListener('click', function(e) {
             e.preventDefault();
-            showMessage('Please contact your system administrator to reset your password.', 'info');
+            showToast('Password reset flow is not yet enabled on backend.', 'info');
+            showMessage('Reset request captured. Please contact system administrator.', 'info');
         });
 
         // Form submission
@@ -175,6 +176,7 @@ Used by: All OSCA staff members for system access
             
             const username = usernameInput.value.trim();
             const password = passwordInput.value;
+            const rememberMe = document.getElementById('rememberMe').checked;
 
             // Validation
             if (!username || !password) {
@@ -186,41 +188,47 @@ Used by: All OSCA staff members for system access
             setLoading(true);
 
             try {
-                // Simulate authentication
-                await authenticate(username, password);
-                
+                await authenticate(username, password, rememberMe);
             } catch (error) {
                 showMessage(error.message, 'error');
                 setLoading(false);
             }
         });
 
-        // Authentication simulation
-        async function authenticate(username, password) {
-            // Simulate delay
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            
-            // Demo credentials (roles assigned during account creation)
-            const credentials = {
-                'admin': { password: 'admin123', role: 'Administrator' },
-                'encoder1': { password: 'encoder123', role: 'Encoder / Staff' },
-                'auditor1': { password: 'auditor123', role: 'Auditor' },
-                'viewer1': { password: 'viewer123', role: 'Viewer' }
-            };
-
-            const user = credentials[username];
-            
-            if (!user || user.password !== password) {
-                throw new Error('Invalid username or password.');
+        async function authenticate(username, password, rememberMe) {
+            if (!window.pywebview || !window.pywebview.api || !window.pywebview.api.login) {
+                throw new Error('Authentication service is not available.');
             }
 
+            const response = await window.pywebview.api.login({
+                username,
+                password,
+                remember_me: rememberMe
+            });
+
+            if (!response.ok) {
+                throw new Error(response.error || 'Unable to sign in.');
+            }
+
+            const sessionPayload = JSON.stringify({
+                token: response.token,
+                expires_at: response.expires_at,
+                user: response.user
+            });
+            const storage = rememberMe ? window.localStorage : window.sessionStorage;
+            storage.setItem('centenaryo_auth', sessionPayload);
+
+            // Keep auth state synced across pages.
+            window.localStorage.setItem('centenaryo_auth_state', JSON.stringify({
+                isAuthenticated: true,
+                user: response.user
+            }));
+
+            showToast('Signed in successfully.', 'success');
             showMessage('Login successful! Redirecting...', 'success');
-            
-            // Simulate redirect
             setTimeout(() => {
-                showMessage(`Welcome ${username}! (${user.role}) Dashboard would open here.`, 'success');
-                setLoading(false);
-            }, 1000);
+                window.location.href = 'index.html';
+            }, 800);
         }
 
         // Loading state
@@ -255,6 +263,28 @@ Used by: All OSCA staff members for system access
             
             // Auto remove
             setTimeout(() => messageDiv.remove(), type === 'error' ? 5000 : 8000);
+        }
+
+        function showToast(message, type = 'info') {
+            const container = getToastContainer();
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            toast.setAttribute('role', 'status');
+            toast.setAttribute('aria-live', 'polite');
+            toast.textContent = message;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3500);
+        }
+
+        function getToastContainer() {
+            let container = document.getElementById('toastContainer');
+            if (!container) {
+                container = document.createElement('div');
+                container.id = 'toastContainer';
+                container.className = 'toast-container';
+                document.body.appendChild(container);
+            }
+            return container;
         }
 
         // Auto focus
