@@ -1041,3 +1041,53 @@ sqlite3.OperationalError: no such column: updated_at
 2026-04-06 21:06:46,339 - __main__ - INFO - Window created: 1000x700 at position (268, 82)
 2026-04-06 21:07:01,384 - __main__ - INFO - Application shutdown complete
 >>>>>>> origin/main
+2026-04-06 22:56:43,613 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-06 22:56:43,613 - __main__ - INFO - Mode: Development
+2026-04-06 22:56:43,613 - __main__ - INFO - API bridge initialized successfully
+2026-04-06 22:56:43,695 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
+2026-04-06 22:56:50,525 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:2615/login.html
+2026-04-06 22:59:22,494 - __main__ - INFO - Application shutdown complete
+2026-04-06 22:59:24,816 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-06 22:59:24,816 - __main__ - INFO - Mode: Development
+2026-04-06 22:59:24,816 - __main__ - INFO - API bridge initialized successfully
+2026-04-06 22:59:24,903 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
+2026-04-06 22:59:30,974 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:46170/login.html
+2026-04-06 23:06:02,079 - __main__ - INFO - Application shutdown complete
+2026-04-06 23:06:04,859 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-06 23:06:04,859 - __main__ - INFO - Mode: Development
+2026-04-06 23:06:04,860 - __main__ - INFO - API bridge initialized successfully
+2026-04-06 23:06:04,943 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
+2026-04-06 23:06:10,834 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:12747/login.html
+2026-04-06 23:09:18,135 - __main__ - INFO - Application shutdown complete
+2026-04-06 23:09:21,425 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-06 23:09:21,425 - __main__ - INFO - Mode: Development
+2026-04-06 23:09:21,425 - __main__ - INFO - API bridge initialized successfully
+2026-04-06 23:09:21,511 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
+2026-04-06 23:09:27,386 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:48754/login.html
+2026-04-06 23:10:19,467 - __main__ - INFO - Application shutdown complete
+2026-04-06 23:13:52,034 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-06 23:13:52,034 - __main__ - INFO - Mode: Development
+2026-04-06 23:13:52,034 - __main__ - INFO - API bridge initialized successfully
+2026-04-06 23:13:52,130 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
+2026-04-06 23:13:57,845 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:39474/login.html
+2026-04-06 23:20:55,294 - __main__ - INFO - Application shutdown complete
+2026-04-06 23:20:59,021 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-06 23:20:59,021 - __main__ - INFO - Mode: Development
+2026-04-06 23:20:59,022 - __main__ - INFO - API bridge initialized successfully
+2026-04-06 23:20:59,118 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
+2026-04-06 23:21:05,276 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:25208/login.html
+2026-04-06 23:21:56,409 - __main__ - INFO - Application shutdown complete
+2026-04-06 23:22:29,243 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-06 23:22:29,244 - __main__ - INFO - Mode: Development
+2026-04-06 23:22:29,244 - __main__ - INFO - API bridge initialized successfully
+2026-04-06 23:22:29,330 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
+2026-04-06 23:22:34,997 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:38499/login.html
+2026-04-06 23:33:57,543 - __main__ - INFO - Application shutdown complete
+2026-04-06 23:35:23,731 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-06 23:35:23,731 - __main__ - INFO - Mode: Development
+2026-04-06 23:35:23,732 - __main__ - INFO - API bridge initialized successfully
+2026-04-06 23:35:23,819 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
+2026-04-06 23:35:29,529 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:16251/login.html
+2026-04-06 23:36:06,518 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:16251/register.html
+2026-04-06 23:36:10,431 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:16251/register.html
+2026-04-06 23:36:35,282 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:16251/login.html

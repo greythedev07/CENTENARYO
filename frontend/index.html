@@ -142,7 +142,8 @@ Used by: First-time users, system administrators
                     const authState = JSON.parse(authStateRaw);
                     if (authState?.isAuthenticated && authState?.user?.username) {
                         sessionStatus.textContent = `Signed in as ${authState.user.username}`;
-                        signInLink.textContent = '🏠 Continue to Home';
+                        signInLink.textContent = '🏠 Continue to Dashboard';
+                        signInLink.href = 'dashboard.html';
                     }
                 } catch (error) {
                     sessionStatus.textContent = '';
