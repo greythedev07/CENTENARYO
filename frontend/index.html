@@ -142,7 +142,11 @@ Used by: First-time users, system administrators
                     const authState = JSON.parse(authStateRaw);
                     if (authState?.isAuthenticated && authState?.user?.username) {
                         sessionStatus.textContent = `Signed in as ${authState.user.username}`;
+<<<<<<< HEAD
                         signInLink.textContent = '🏠 Continue to Dashboard';
+=======
+                        signInLink.textContent = '🏠 Continue to Home';
+>>>>>>> origin/khiro
                         signInLink.href = 'dashboard.html';
                     }
                 } catch (error) {

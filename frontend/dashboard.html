@@ -6,6 +6,7 @@
     <title>CENTENARYO Dashboard</title>
     <link rel="stylesheet" href="libs/pico.min.css">
     <link rel="stylesheet" href="css/styles.css">
+<<<<<<< HEAD
     <style>
         .dashboard-shell { background: var(--gray-bg); min-height: 100vh; }
         .header-topbar { background: var(--primary-light); color: #fff; padding: 0.75rem 1rem; position: static; }
@@ -44,6 +45,109 @@
 
     <nav class="nav-topbar" aria-label="Primary navigation">
         <ul>
+=======
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .dashboard-page {
+            background: var(--gray-bg);
+        }
+        .header-topbar {
+            padding: 0.6rem 1rem;
+            background: var(--primary);
+            color: var(--color-white);
+        }
+        .header-topbar * {
+            color: var(--color-white);
+        }
+        .nav-topbar-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--primary-dark);
+            padding: 0.5rem 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .nav-topbar-sticky a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            padding: 0.45rem 0.7rem;
+            border-radius: var(--radius-sm);
+            display: inline-block;
+            font-size: 0.92rem;
+        }
+        .nav-topbar-sticky a[aria-current="page"] {
+            background: var(--primary);
+            color: var(--color-white);
+            font-weight: 600;
+        }
+        .nav-topbar-sticky a:hover {
+            background: rgba(255, 255, 255, 0.14);
+        }
+        .dashboard-main {
+            padding: 1rem;
+            display: grid;
+            gap: 1rem;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.75rem;
+        }
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.75rem;
+        }
+        .quick-actions button {
+            min-height: 50px;
+            font-weight: 600;
+        }
+        .muted {
+            color: var(--gray-medium);
+        }
+        @media (max-width: 1024px) {
+            .metrics-grid,
+            .quick-actions {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        @media (max-width: 860px) {
+            .analytics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 640px) {
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+            .nav-topbar-sticky ul {
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body class="dashboard-page">
+    <header class="header-topbar">
+        <nav class="container-fluid">
+            <ul>
+                <li><strong>CENTENARYO</strong></li>
+            </ul>
+            <ul>
+                <li><small id="welcomeUserTop">Welcome, Staff User</small></li>
+                <li><a href="#" role="button" class="secondary" id="logoutBtn">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <nav class="nav-topbar-sticky" aria-label="Dashboard modules">
+        <ul class="container-fluid">
+>>>>>>> origin/khiro
             <li><a href="#" aria-current="page">Dashboard</a></li>
             <li><a href="#">Senior Records</a></li>
             <li><a href="#">Disbursements / Payroll</a></li>
@@ -54,12 +158,17 @@
         </ul>
     </nav>
 
+<<<<<<< HEAD
     <main class="dashboard-content">
+=======
+    <main class="dashboard-main container-fluid">
+>>>>>>> origin/khiro
         <article>
             <h2 id="welcomeHeader">Good morning, Staff User | OSCA Dashboard</h2>
             <p class="muted" id="currentDate"></p>
         </article>
 
+<<<<<<< HEAD
         <section class="metrics-grid" aria-label="Key metrics">
             <article><header>Total Registered Seniors</header><h3>4,286</h3><small class="muted">+2.4% from last month</small></article>
             <article><header>Active Pensioners</header><h3>3,912</h3><small class="muted">+1.1% from last month</small></article>
@@ -84,11 +193,62 @@
         </article>
 
         <article style="margin-top: 1rem;">
+=======
+        <section class="metrics-grid" aria-label="Key Metrics">
+            <article>
+                <header>Total Registered Seniors</header>
+                <h3>4,286</h3>
+                <small class="muted">+2.4% vs last month</small>
+            </article>
+            <article>
+                <header>Active Pensioners</header>
+                <h3>3,912</h3>
+                <small class="muted">+1.1% vs last month</small>
+            </article>
+            <article>
+                <header>Anomalies Detected (Month)</header>
+                <h3>27</h3>
+                <small class="muted">-12% vs last month</small>
+            </article>
+            <article>
+                <header>Pending Disbursements</header>
+                <h3>143</h3>
+                <small class="muted">Current processing queue</small>
+            </article>
+        </section>
+
+        <section class="analytics-grid" aria-label="Analytics">
+            <article>
+                <h4>Monthly Disbursements (Last 6 Months)</h4>
+                <canvas id="barChart" aria-label="Monthly disbursements bar chart"></canvas>
+            </article>
+            <article>
+                <h4>Anomaly Types (Random Forest Detection)</h4>
+                <canvas id="pieChart" aria-label="Anomaly types pie chart"></canvas>
+            </article>
+        </section>
+
+        <article>
+            <h4>Senior Population Trend by Age Group</h4>
+            <canvas id="lineChart" aria-label="Senior population line chart"></canvas>
+        </article>
+
+        <article>
+>>>>>>> origin/khiro
             <h4>Recent Activity</h4>
             <figure>
                 <table role="grid">
                     <thead>
+<<<<<<< HEAD
                         <tr><th>Date</th><th>Activity</th><th>Reference</th><th>Status</th></tr>
+=======
+                        <tr>
+                            <th>Date</th>
+                            <th>Activity</th>
+                            <th>Reference</th>
+                            <th>Status</th>
+                        </tr>
+>>>>>>> origin/khiro
                     </thead>
                     <tbody>
                         <tr><td>2026-04-06</td><td>Senior Registration</td><td>SR-12091</td><td>Completed</td></tr>
@@ -101,26 +261,45 @@
             </figure>
         </article>
 
+<<<<<<< HEAD
         <section class="quick-actions" aria-label="Quick actions">
             <button id="actionRegister">New Senior Registration</button>
             <button class="secondary" id="actionPayroll">Generate Payroll</button>
             <button class="contrast" id="actionAnomaly">Review Anomalies</button>
+=======
+        <section class="quick-actions" aria-label="Quick Actions">
+            <button id="actionRegister">New Senior Registration</button>
+            <button class="secondary" id="actionPayroll">Generate Payroll</button>
+            <button class="contrast" id="actionReview">Review Anomalies</button>
+>>>>>>> origin/khiro
             <button class="outline" id="actionPrint">Print Senior ID</button>
         </section>
     </main>
 
     <script>
+<<<<<<< HEAD
         function getUserName() {
             try {
                 const raw = localStorage.getItem('centenaryo_auth_state');
                 if (!raw) return 'Staff User';
                 const parsed = JSON.parse(raw);
                 return parsed?.user?.username || 'Staff User';
+=======
+        function getCurrentUser() {
+            try {
+                const authRaw = localStorage.getItem('centenaryo_auth_state');
+                if (!authRaw) {
+                    return 'Staff User';
+                }
+                const auth = JSON.parse(authRaw);
+                return auth?.user?.username || 'Staff User';
+>>>>>>> origin/khiro
             } catch (error) {
                 return 'Staff User';
             }
         }
 
+<<<<<<< HEAD
         function setWelcome() {
             const username = getUserName();
             const now = new Date();
@@ -134,6 +313,29 @@
             const blue = '#3B82F6';
             const blueDark = '#1D4ED8';
             const green = '#16A34A';
+=======
+        function renderHeader() {
+            const username = getCurrentUser();
+            const now = new Date();
+            const hour = now.getHours();
+            const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
+            const dateText = now.toLocaleDateString('en-PH', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            document.getElementById('welcomeUserTop').textContent = `Welcome, ${username}`;
+            document.getElementById('welcomeHeader').textContent = `${greeting}, ${username} | OSCA Dashboard`;
+            document.getElementById('currentDate').textContent = dateText;
+        }
+
+        function renderCharts() {
+            const blue = '#2D5A8E';
+            const blueDark = '#1E3A5F';
+            const green = '#3A7A57';
+>>>>>>> origin/khiro
             const gray = '#6B7280';
             const grid = '#E5E7EB';
 
@@ -141,18 +343,49 @@
                 type: 'bar',
                 data: {
                     labels: ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr'],
+<<<<<<< HEAD
                     datasets: [{ label: 'Disbursement (PHP)', data: [1120000, 1195000, 1240000, 1218000, 1285000, 1312000], backgroundColor: blue }]
                 },
                 options: { responsive: true, plugins: { legend: { display: false } }, scales: { x: { grid: { color: grid }, ticks: { color: gray } }, y: { grid: { color: grid }, ticks: { color: gray } } } }
+=======
+                    datasets: [{
+                        label: 'Disbursement (PHP)',
+                        data: [1120000, 1195000, 1240000, 1218000, 1285000, 1312000],
+                        backgroundColor: blue
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { grid: { color: grid }, ticks: { color: gray } },
+                        y: { grid: { color: grid }, ticks: { color: gray } }
+                    }
+                }
+>>>>>>> origin/khiro
             });
 
             new Chart(document.getElementById('pieChart'), {
                 type: 'pie',
                 data: {
                     labels: ['Duplicate Claim', 'Ghost Pensioner', 'ID Mismatch', 'Outlier Amount'],
+<<<<<<< HEAD
                     datasets: [{ data: [9, 6, 7, 5], backgroundColor: [blue, blueDark, green, gray] }]
                 },
                 options: { responsive: true, plugins: { legend: { labels: { color: gray } } } }
+=======
+                    datasets: [{
+                        data: [9, 6, 7, 5],
+                        backgroundColor: [blueDark, blue, green, gray]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { labels: { color: gray } }
+                    }
+                }
+>>>>>>> origin/khiro
             });
 
             new Chart(document.getElementById('lineChart'), {
@@ -160,11 +393,16 @@
                 data: {
                     labels: ['2021', '2022', '2023', '2024', '2025', '2026'],
                     datasets: [
+<<<<<<< HEAD
                         { label: '60-69', data: [980, 1020, 1080, 1150, 1220, 1270], borderColor: blue, tension: 0.3 },
+=======
+                        { label: '60-69', data: [980, 1020, 1080, 1150, 1220, 1270], borderColor: blueDark, tension: 0.3 },
+>>>>>>> origin/khiro
                         { label: '70-79', data: [640, 670, 710, 755, 790, 830], borderColor: green, tension: 0.3 },
                         { label: '80+', data: [280, 300, 325, 340, 360, 390], borderColor: gray, tension: 0.3 }
                     ]
                 },
+<<<<<<< HEAD
                 options: { responsive: true, plugins: { legend: { labels: { color: gray } } }, scales: { x: { grid: { color: grid }, ticks: { color: gray } }, y: { grid: { color: grid }, ticks: { color: gray } } } }
             });
         }
@@ -179,6 +417,21 @@
             });
 
             document.getElementById('logoutBtn').addEventListener('click', (event) => {
+=======
+                options: {
+                    responsive: true,
+                    plugins: { legend: { labels: { color: gray } } },
+                    scales: {
+                        x: { grid: { color: grid }, ticks: { color: gray } },
+                        y: { grid: { color: grid }, ticks: { color: gray } }
+                    }
+                }
+            });
+        }
+
+        function bindUI() {
+            document.getElementById('logoutBtn').addEventListener('click', function (event) {
+>>>>>>> origin/khiro
                 event.preventDefault();
                 localStorage.removeItem('centenaryo_auth_state');
                 localStorage.removeItem('centenaryo_auth');
@@ -187,10 +440,17 @@
             });
         }
 
+<<<<<<< HEAD
         window.addEventListener('DOMContentLoaded', () => {
             setWelcome();
             makeCharts();
             bindActions();
+=======
+        window.addEventListener('DOMContentLoaded', function () {
+            renderHeader();
+            renderCharts();
+            bindUI();
+>>>>>>> origin/khiro
         });
     </script>
 </body>
