@@ -1120,3 +1120,49 @@ sqlite3.OperationalError: no such column: updated_at
 2026-04-07 00:09:12,432 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:11483/login.html
 2026-04-07 00:09:21,032 - __main__ - INFO - Application shutdown complete
 >>>>>>> origin/khiro
+2026-04-09 19:33:02,145 - __main__ - INFO - Database mode: CLOUD (team sync)
+2026-04-09 19:33:03,325 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-09 19:33:03,326 - __main__ - INFO - Mode: Development
+2026-04-09 19:33:03,326 - __main__ - INFO - API bridge initialized successfully
+2026-04-09 19:33:04,396 - __main__ - INFO - Window created: 1000x700 at position (268, 82)
+2026-04-09 19:34:18,568 - __main__ - INFO - Application shutdown complete
+2026-04-09 19:34:28,936 - __main__ - INFO - Database mode: CLOUD (team sync)
+2026-04-09 19:34:29,946 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-09 19:34:29,947 - __main__ - INFO - Mode: Development
+2026-04-09 19:34:29,947 - __main__ - INFO - API bridge initialized successfully
+2026-04-09 19:34:30,089 - __main__ - INFO - Window created: 1000x700 at position (268, 82)
+2026-04-09 19:35:20,768 - __main__ - INFO - Application shutdown complete
+2026-04-09 19:41:14,452 - __main__ - INFO - Database mode: CLOUD (team sync)
+2026-04-09 19:41:15,574 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-09 19:41:15,574 - __main__ - INFO - Mode: Development
+2026-04-09 19:41:15,574 - __main__ - INFO - API bridge initialized successfully
+2026-04-09 19:41:15,789 - __main__ - INFO - Window created: 1000x700 at position (268, 82)
+2026-04-09 19:41:26,962 - __main__ - INFO - Application shutdown complete
+2026-04-09 19:41:43,092 - __main__ - INFO - Database mode: CLOUD (team sync)
+2026-04-09 19:41:44,134 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-09 19:41:44,135 - __main__ - INFO - Mode: Development
+2026-04-09 19:41:44,135 - __main__ - INFO - API bridge initialized successfully
+2026-04-09 19:41:44,308 - __main__ - INFO - Window created: 1000x700 at position (268, 82)
+2026-04-09 19:41:52,384 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:59407/register.html
+2026-04-09 19:44:05,812 - __main__ - INFO - Application shutdown complete
+2026-04-09 19:45:16,370 - __main__ - INFO - Database mode: CLOUD (team sync)
+2026-04-09 19:45:17,547 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-09 19:45:17,547 - __main__ - INFO - Mode: Development
+2026-04-09 19:45:17,548 - __main__ - INFO - API bridge initialized successfully
+2026-04-09 19:45:17,730 - __main__ - INFO - Window created: 1000x700 at position (268, 82)
+2026-04-09 19:45:26,426 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:63460/login.html
+2026-04-09 19:45:50,885 - __main__ - INFO - Application shutdown complete
+2026-04-09 19:48:43,278 - __main__ - INFO - Database mode: CLOUD (team sync)
+2026-04-09 19:48:44,409 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-09 19:48:44,410 - __main__ - INFO - Mode: Development
+2026-04-09 19:48:44,410 - __main__ - INFO - API bridge initialized successfully
+2026-04-09 19:48:44,548 - __main__ - INFO - Window created: 1000x700 at position (268, 82)
+2026-04-09 19:48:51,843 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:31517/login.html
+2026-04-09 19:50:16,497 - __main__ - INFO - Application shutdown complete
+2026-04-09 19:50:30,405 - __main__ - INFO - Database mode: CLOUD (team sync)
+2026-04-09 19:50:31,500 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-09 19:50:31,501 - __main__ - INFO - Mode: Development
+2026-04-09 19:50:31,501 - __main__ - INFO - API bridge initialized successfully
+2026-04-09 19:50:31,636 - __main__ - INFO - Window created: 1000x700 at position (268, 82)
+2026-04-09 19:50:38,591 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:57563/login.html
+2026-04-09 20:27:40,820 - __main__ - INFO - Application shutdown complete

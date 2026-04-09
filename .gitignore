@@ -1,0 +1,12 @@
+# Database files (never commit)
+*.db
+*.sqlite
+*.sqlite3
+data/
+
+# Environment variables with secrets
+.env
+
+# Python cache
+__pycache__/
+*.pyc

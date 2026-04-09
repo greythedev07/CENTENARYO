@@ -19,6 +19,9 @@ Features:
 - Resource path management
 """
 
+from dotenv import load_dotenv
+load_dotenv()
+
 import webview
 import logging
 import sys
@@ -42,6 +45,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+test_db = DatabaseManager()
+logger.info(f"Database mode: {'CLOUD (team sync)' if test_db.is_cloud_mode() else 'LOCAL (offline)'}")
+del test_db
 
 class CentenaryoApp:
     """Main application class for CENTENARYO desktop application"""
