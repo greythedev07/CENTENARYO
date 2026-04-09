@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CENTENARYO Inventory</title>
+    <link rel="stylesheet" href="libs/pico.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            margin: 0;
+            background: var(--gray-bg);
+            color: var(--gray-dark);
+        }
+        .header-topbar {
+            background: var(--primary);
+            color: var(--color-white);
+            padding: 0.75rem 1rem;
+        }
+        .header-topbar strong,
+        .header-topbar small,
+        .header-topbar a {
+            color: var(--color-white);
+        }
+        .nav-topbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--primary-light);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 0.5rem 1rem;
+        }
+        .nav-topbar ul {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            white-space: nowrap;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-topbar a {
+            display: inline-block;
+            color: var(--color-white);
+            text-decoration: none;
+            padding: 0.35rem 0.75rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid transparent;
+            font-size: 0.9rem;
+        }
+        .nav-topbar a[aria-current="page"] {
+            background: rgba(255, 255, 255, 0.22);
+            border-color: rgba(255, 255, 255, 0.3);
+            font-weight: 600;
+        }
+        .layout {
+            padding: 1rem;
+        }
+        .toolbar {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 0.75rem;
+            align-items: center;
+        }
+        .stock-controls {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .tab-row {
+            display: flex;
+            gap: 0.5rem;
+            margin: 0.5rem 0 1rem;
+            flex-wrap: wrap;
+        }
+        .tab-row button.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--color-white);
+        }
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+        .low-stock {
+            background: rgba(133, 57, 83, 0.12);
+        }
+        .results-table tbody tr {
+            cursor: pointer;
+        }
+        .sortable { cursor: pointer; user-select: none; }
+        .sortable small { opacity: 0.8; font-size: 0.72rem; }
+        .muted {
+            color: var(--gray-medium);
+        }
+        .split {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 0.75rem;
+        }
+        @media (max-width: 960px) {
+            .split {
+                grid-template-columns: 1fr;
+            }
+            .toolbar {
+                grid-template-columns: 1fr;
+            }
+            .stock-controls {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-topbar">
+        <div class="container-fluid">
+            <nav>
+                <ul><li><strong>CENTENARYO</strong></li></ul>
+                <ul>
+                    <li><small id="topbarUser">Welcome, Staff User</small></li>
+                    <li><a href="#" role="button" class="secondary" id="logoutBtn">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="nav-topbar" aria-label="Primary Navigation">
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="senior_records.html">Senior Records</a></li>
+            <li><a href="#">Disbursements / Payroll</a></li>
+            <li><a href="#">Anomaly Review</a></li>
+            <li><a href="inventory.html" aria-current="page">Inventory</a></li>
+            <li><a href="#">Analytics</a></li>
+            <li><a href="#">Audit Logs</a></li>
+        </ul>
+    </nav>
+
+    <main class="layout">
+        <article>
+            <h2>Inventory Management</h2>
+            <p class="muted">Manage stock, issue booklets to seniors, and track transactions.</p>
+        </article>
+
+        <div class="tab-row" role="tablist" aria-label="Inventory sections">
+            <button id="tabStock" class="active" type="button">Inventory Stock</button>
+            <button id="tabIssue" type="button">Issue to Senior</button>
+        </div>
+
+        <section id="sectionStock" class="section active">
+            <article>
+                <div class="stock-controls">
+                    <input id="stockSearch" type="search" placeholder="Search item name or serialized code">
+                    <button id="showStockBtn" class="secondary" type="button">Show Records</button>
+                    <button id="addItemBtn">Add New Item</button>
+                </div>
+                <figure>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="sortable" data-sort-key="item_name">Item Name <small>↕</small></th>
+                                <th class="sortable" data-sort-key="category">Category <small>↕</small></th>
+                                <th class="sortable" data-sort-key="stock_quantity">Current Stock <small>↕</small></th>
+                                <th class="sortable" data-sort-key="unit">Unit <small>↕</small></th>
+                                <th class="sortable" data-sort-key="serialized_code">Serialized Code <small>↕</small></th>
+                                <th class="sortable" data-sort-key="status">Status <small>↕</small></th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="stockTableBody"></tbody>
+                    </table>
+                </figure>
+            </article>
+        </section>
+
+        <section id="sectionIssue" class="section">
+            <div class="split">
+                <article>
+                    <h4>Search Senior Citizen</h4>
+                    <input id="seniorSearch" type="search" placeholder="Search Senior by Name, Username or ID">
+                    <figure>
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Senior Name</th>
+                                    <th>Age</th>
+                                    <th>Barangay</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="seniorTableBody"></tbody>
+                        </table>
+                    </figure>
+                </article>
+
+                <article>
+                    <h4>Recent Inventory Issuances</h4>
+                    <figure>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Senior</th>
+                                    <th>Item</th>
+                                    <th>Date</th>
+                                    <th>Staff</th>
+                                </tr>
+                            </thead>
+                            <tbody id="historyTableBody"></tbody>
+                        </table>
+                    </figure>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <dialog id="itemModal">
+        <article>
+            <header><strong id="itemModalTitle">Add Inventory Item</strong></header>
+            <form id="itemForm">
+                <input type="hidden" id="itemId">
+                <label>Item Name<input id="itemName" required></label>
+                <label>Category
+                    <select id="itemCategory" required>
+                        <option value="Medicine">Medicine</option>
+                        <option value="Grocery">Grocery</option>
+                    </select>
+                </label>
+                <label>Stock Quantity<input id="itemStock" type="number" min="0" required></label>
+                <label>Unit<input id="itemUnit" value="booklet" required></label>
+                <label>Serialized Code<input id="itemSerial" required></label>
+                <label>Status
+                    <select id="itemStatus">
+                        <option value="active">active</option>
+                        <option value="inactive">inactive</option>
+                    </select>
+                </label>
+                <footer>
+                    <button type="button" class="secondary" id="closeItemModalBtn">Cancel</button>
+                    <button type="submit">Save</button>
+                </footer>
+            </form>
+        </article>
+    </dialog>
+
+    <dialog id="issueModal">
+        <article>
+            <header><strong>Issue Booklet</strong></header>
+            <form id="issueForm">
+                <input type="hidden" id="issueSeniorId">
+                <label>Senior<input id="issueSeniorName" readonly></label>
+                <label>Item
+                    <select id="issueItemId" required></select>
+                </label>
+                <label>Quantity Issued<input id="issueQty" type="number" min="1" value="1" required></label>
+                <label>Remarks<textarea id="issueRemarks"></textarea></label>
+                <footer>
+                    <button type="button" class="secondary" id="closeIssueModalBtn">Cancel</button>
+                    <button type="submit">Issue</button>
+                </footer>
+            </form>
+        </article>
+    </dialog>
+
+    <dialog id="profileModal">
+        <article>
+            <header><strong>Senior Profile</strong></header>
+            <div id="profileDetails"></div>
+            <footer><button type="button" id="closeProfileModalBtn">Close</button></footer>
+        </article>
+    </dialog>
+
+    <script>
+        function getAuthState() {
+            try {
+                const raw = localStorage.getItem('centenaryo_auth_state');
+                return raw ? JSON.parse(raw) : null;
+            } catch (error) {
+                return null;
+            }
+        }
+
+        function requireAuth() {
+            const auth = getAuthState();
+            if (!auth?.isAuthenticated || !auth?.user?.username) {
+                window.location.href = 'login.html';
+                return null;
+            }
+            document.getElementById('topbarUser').textContent = `Welcome, ${auth.user.username}`;
+            return auth.user.username;
+        }
+
+        function getApi() {
+            if (!window.pywebview || !window.pywebview.api) {
+                throw new Error('Backend API is not available.');
+            }
+            return window.pywebview.api;
+        }
+
+        const ui = {
+            itemModal: document.getElementById('itemModal'),
+            issueModal: document.getElementById('issueModal'),
+            profileModal: document.getElementById('profileModal'),
+            stockBody: document.getElementById('stockTableBody'),
+            seniorBody: document.getElementById('seniorTableBody'),
+            historyBody: document.getElementById('historyTableBody')
+        };
+        const stockState = {
+            items: [],
+            sortKey: 'item_name',
+            sortDir: 'asc'
+        };
+
+        function toggleSection(activeId) {
+            document.querySelectorAll('.section').forEach((section) => {
+                section.classList.toggle('active', section.id === activeId);
+            });
+            document.getElementById('tabStock').classList.toggle('active', activeId === 'sectionStock');
+            document.getElementById('tabIssue').classList.toggle('active', activeId === 'sectionIssue');
+        }
+
+        function openDialog(dialog) {
+            if (dialog.showModal) dialog.showModal();
+            else dialog.setAttribute('open', 'open');
+        }
+
+        function closeDialog(dialog) {
+            if (dialog.close) dialog.close();
+            else dialog.removeAttribute('open');
+        }
+
+        function sortItems(items) {
+            const key = stockState.sortKey;
+            const sorted = [...items].sort((a, b) => {
+                const av = a?.[key];
+                const bv = b?.[key];
+                if (av === null || av === undefined || av === '') return -1;
+                if (bv === null || bv === undefined || bv === '') return 1;
+                if (key === 'stock_quantity' || key === 'id') return Number(av) - Number(bv);
+                return String(av).localeCompare(String(bv), undefined, { sensitivity: 'base' });
+            });
+            if (stockState.sortDir === 'desc') sorted.reverse();
+            return sorted;
+        }
+
+        async function loadStock(search = '') {
+            const response = await getApi().inventory_list_items({ search });
+            ui.stockBody.innerHTML = '';
+            stockState.items = response.items || [];
+            const items = sortItems(stockState.items);
+            if (!items.length) {
+                ui.stockBody.innerHTML = '<tr><td colspan="7">No inventory items found.</td></tr>';
+                return;
+            }
+            items.forEach((item) => {
+                const row = document.createElement('tr');
+                if (item.stock_quantity < 10) row.classList.add('low-stock');
+                row.innerHTML = `
+                    <td>${item.item_name}</td>
+                    <td>${item.category}</td>
+                    <td>${item.stock_quantity}${item.stock_quantity < 10 ? ' (Low)' : ''}</td>
+                    <td>${item.unit}</td>
+                    <td>${item.serialized_code}</td>
+                    <td>${item.status}</td>
+                    <td>
+                        <button type="button" data-edit="${item.id}" class="secondary">Edit</button>
+                        <button type="button" data-delete="${item.id}" class="contrast">Delete</button>
+                    </td>
+                `;
+                ui.stockBody.appendChild(row);
+            });
+        }
+
+        async function loadSeniors(query = '') {
+            const response = await getApi().inventory_search_seniors({ query });
+            ui.seniorBody.innerHTML = '';
+            const seniors = response.seniors || [];
+            if (!seniors.length) {
+                ui.seniorBody.innerHTML = '<tr><td colspan="5">No senior records found.</td></tr>';
+                return;
+            }
+
+            seniors.forEach((senior) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${senior.display_name || '-'}</td>
+                    <td>${senior.age ?? '-'}</td>
+                    <td>${senior.barangay ?? '-'}</td>
+                    <td>${senior.status ?? 'active'}</td>
+                    <td>
+                        <button type="button" data-profile="${senior.id}" class="secondary">View Profile</button>
+                        <button type="button" data-issue="${senior.id}" data-name="${senior.display_name || ''}">Issue Booklet</button>
+                    </td>
+                `;
+                ui.seniorBody.appendChild(row);
+            });
+        }
+
+        async function loadHistory() {
+            const response = await getApi().inventory_history({ limit: 20 });
+            ui.historyBody.innerHTML = '';
+            const records = response.history || [];
+            if (!records.length) {
+                ui.historyBody.innerHTML = '<tr><td colspan="4">No issuance records yet.</td></tr>';
+                return;
+            }
+            records.forEach((record) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${record.senior_name || '-'}</td>
+                    <td>${record.item_name || '-'}</td>
+                    <td>${record.date_issued || '-'}</td>
+                    <td>${record.issued_by_staff || '-'}</td>
+                `;
+                ui.historyBody.appendChild(row);
+            });
+        }
+
+        function fillItemForm(item = null) {
+            document.getElementById('itemModalTitle').textContent = item ? 'Edit Inventory Item' : 'Add Inventory Item';
+            document.getElementById('itemId').value = item ? item.id : '';
+            document.getElementById('itemName').value = item ? item.item_name : '';
+            document.getElementById('itemCategory').value = item ? item.category : 'Medicine';
+            document.getElementById('itemStock').value = item ? item.stock_quantity : '0';
+            document.getElementById('itemUnit').value = item ? item.unit : 'booklet';
+            document.getElementById('itemSerial').value = item ? item.serialized_code : '';
+            document.getElementById('itemStatus').value = item ? item.status : 'active';
+        }
+
+        async function loadIssueItems() {
+            const response = await getApi().inventory_list_items({ search: '' });
+            const select = document.getElementById('issueItemId');
+            select.innerHTML = '';
+            (response.items || []).forEach((item) => {
+                if (item.status === 'active' && item.stock_quantity > 0) {
+                    const option = document.createElement('option');
+                    option.value = item.id;
+                    option.textContent = `${item.item_name} (${item.stock_quantity} ${item.unit})`;
+                    select.appendChild(option);
+                }
+            });
+        }
+
+        async function refreshAll() {
+            await Promise.all([loadStock(), loadSeniors(), loadHistory()]);
+        }
+
+        function notify(message) {
+            window.alert(message);
+        }
+
+        window.addEventListener('DOMContentLoaded', async () => {
+            const staffUsername = requireAuth();
+            if (!staffUsername) return;
+
+            document.getElementById('tabStock').addEventListener('click', () => toggleSection('sectionStock'));
+            document.getElementById('tabIssue').addEventListener('click', () => toggleSection('sectionIssue'));
+
+            document.getElementById('logoutBtn').addEventListener('click', (event) => {
+                event.preventDefault();
+                localStorage.removeItem('centenaryo_auth_state');
+                localStorage.removeItem('centenaryo_auth');
+                sessionStorage.removeItem('centenaryo_auth');
+                window.location.href = 'login.html';
+            });
+
+            document.getElementById('stockSearch').addEventListener('input', async (event) => {
+                await loadStock(event.target.value);
+            });
+            document.getElementById('showStockBtn').addEventListener('click', async () => {
+                document.getElementById('stockSearch').value = '';
+                await loadStock('');
+            });
+            document.querySelectorAll('#sectionStock .sortable').forEach((head) => {
+                head.addEventListener('click', () => {
+                    const key = head.getAttribute('data-sort-key');
+                    if (stockState.sortKey === key) {
+                        stockState.sortDir = stockState.sortDir === 'asc' ? 'desc' : 'asc';
+                    } else {
+                        stockState.sortKey = key;
+                        stockState.sortDir = 'asc';
+                    }
+                    loadStock(document.getElementById('stockSearch').value.trim());
+                });
+            });
+
+            document.getElementById('seniorSearch').addEventListener('input', async (event) => {
+                await loadSeniors(event.target.value);
+            });
+
+            document.getElementById('addItemBtn').addEventListener('click', () => {
+                fillItemForm(null);
+                openDialog(ui.itemModal);
+            });
+
+            document.getElementById('closeItemModalBtn').addEventListener('click', () => closeDialog(ui.itemModal));
+            document.getElementById('closeIssueModalBtn').addEventListener('click', () => closeDialog(ui.issueModal));
+            document.getElementById('closeProfileModalBtn').addEventListener('click', () => closeDialog(ui.profileModal));
+
+            ui.stockBody.addEventListener('click', async (event) => {
+                const editId = event.target.getAttribute('data-edit');
+                const deleteId = event.target.getAttribute('data-delete');
+                if (editId) {
+                    const response = await getApi().inventory_list_items({ search: '' });
+                    const item = (response.items || []).find((row) => String(row.id) === String(editId));
+                    if (!item) return;
+                    fillItemForm(item);
+                    openDialog(ui.itemModal);
+                }
+                if (deleteId) {
+                    const ok = window.confirm('Delete this item?');
+                    if (!ok) return;
+                    const response = await getApi().inventory_delete_item({ id: Number(deleteId) });
+                    notify(response.message || response.error || 'Done');
+                    await refreshAll();
+                }
+            });
+
+            ui.seniorBody.addEventListener('click', async (event) => {
+                const profileId = event.target.getAttribute('data-profile');
+                const issueId = event.target.getAttribute('data-issue');
+                if (profileId) {
+                    const response = await getApi().inventory_get_senior_profile({ senior_id: Number(profileId) });
+                    if (!response.ok) {
+                        notify(response.error || 'Unable to load profile.');
+                        return;
+                    }
+                    const details = response.senior || {};
+                    const html = Object.entries(details)
+                        .map(([key, value]) => `<p><strong>${key}:</strong> ${value ?? '-'}</p>`)
+                        .join('');
+                    document.getElementById('profileDetails').innerHTML = html || '<p>No profile details available.</p>';
+                    openDialog(ui.profileModal);
+                }
+                if (issueId) {
+                    await loadIssueItems();
+                    document.getElementById('issueSeniorId').value = issueId;
+                    document.getElementById('issueSeniorName').value = event.target.getAttribute('data-name') || '';
+                    document.getElementById('issueQty').value = '1';
+                    document.getElementById('issueRemarks').value = '';
+                    openDialog(ui.issueModal);
+                }
+            });
+
+            document.getElementById('itemForm').addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const payload = {
+                    id: document.getElementById('itemId').value ? Number(document.getElementById('itemId').value) : null,
+                    item_name: document.getElementById('itemName').value.trim(),
+                    category: document.getElementById('itemCategory').value,
+                    stock_quantity: Number(document.getElementById('itemStock').value),
+                    unit: document.getElementById('itemUnit').value.trim(),
+                    serialized_code: document.getElementById('itemSerial').value.trim(),
+                    status: document.getElementById('itemStatus').value
+                };
+
+                const response = payload.id
+                    ? await getApi().inventory_update_item(payload)
+                    : await getApi().inventory_create_item(payload);
+                notify(response.message || response.error || 'Done');
+                if (response.ok) {
+                    closeDialog(ui.itemModal);
+                    await refreshAll();
+                }
+            });
+
+            document.getElementById('issueForm').addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const response = await getApi().inventory_issue_booklet({
+                    senior_id: Number(document.getElementById('issueSeniorId').value),
+                    inventory_item_id: Number(document.getElementById('issueItemId').value),
+                    quantity_issued: Number(document.getElementById('issueQty').value),
+                    issued_by_staff: staffUsername,
+                    status: 'issued',
+                    remarks: document.getElementById('issueRemarks').value.trim()
+                });
+                notify(response.message || response.error || 'Done');
+                if (response.ok) {
+                    closeDialog(ui.issueModal);
+                    await refreshAll();
+                }
+            });
+
+            await refreshAll();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CENTENARYO Senior Records</title>
+    <link rel="stylesheet" href="libs/pico.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body { margin: 0; background: var(--gray-bg); color: var(--gray-dark); }
+        .header-topbar { background: var(--primary); color: var(--color-white); padding: 0.75rem 1rem; }
+        .header-topbar strong, .header-topbar small, .header-topbar a { color: var(--color-white); }
+        .nav-topbar { position: sticky; top: 0; z-index: 1000; background: var(--primary-light); padding: 0.5rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.25); }
+        .nav-topbar ul { display: flex; gap: 0.5rem; overflow-x: auto; white-space: nowrap; list-style: none; margin: 0; padding: 0; }
+        .nav-topbar a { color: var(--color-white); text-decoration: none; padding: 0.35rem 0.75rem; border-radius: var(--radius-sm); border: 1px solid transparent; font-size: 0.9rem; }
+        .nav-topbar a[aria-current="page"] { background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.3); font-weight: 600; }
+        .layout { padding: 1rem; }
+        .toolbar { display: grid; grid-template-columns: 1fr auto; gap: 0.75rem; align-items: center; }
+        .search-grid { display: grid; grid-template-columns: 1fr 180px auto; gap: 0.75rem; }
+        .status-badge { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600; }
+        .status-active { background: rgba(74,156,110,0.2); color: #2a6e4a; }
+        .status-deceased { background: rgba(133,57,83,0.18); color: #6b2740; }
+        .status-inactive { background: rgba(107,114,128,0.18); color: #4b5563; }
+        .pagination { display: flex; gap: 0.5rem; align-items: center; justify-content: flex-end; margin-top: 0.75rem; }
+        .records-table tbody tr { cursor: pointer; }
+        .sortable { cursor: pointer; user-select: none; }
+        .sortable small { opacity: 0.8; font-size: 0.72rem; }
+        .toast-wrap { position: fixed; top: 12px; right: 12px; display: grid; gap: 8px; z-index: 2000; }
+        .toast { padding: 10px 12px; border-radius: var(--radius-sm); background: #fff; border: 1px solid var(--gray-light); box-shadow: var(--shadow-md); }
+        .toast-error { border-color: rgba(133,57,83,0.32); background: rgba(133,57,83,0.12); color: var(--primary); }
+        .toast-success { border-color: rgba(97,45,83,0.32); background: rgba(97,45,83,0.12); color: var(--primary-light); }
+        @media (max-width: 900px) {
+            .toolbar, .search-grid { grid-template-columns: 1fr; }
+            .pagination { justify-content: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-topbar">
+        <div class="container-fluid">
+            <nav>
+                <ul><li><strong>CENTENARYO</strong></li></ul>
+                <ul>
+                    <li><small id="topbarUser">Welcome, Staff User</small></li>
+                    <li><a href="#" role="button" class="secondary" id="logoutBtn">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <nav class="nav-topbar" aria-label="Primary Navigation">
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="senior_records.html" aria-current="page">Senior Records</a></li>
+            <li><a href="#">Disbursements / Payroll</a></li>
+            <li><a href="#">Anomaly Review</a></li>
+            <li><a href="inventory.html">Inventory</a></li>
+            <li><a href="#">Analytics</a></li>
+            <li><a href="#">Audit Logs</a></li>
+        </ul>
+    </nav>
+
+    <main class="layout">
+        <article>
+            <div class="toolbar">
+                <h2 style="margin:0;">Senior Records</h2>
+                <button id="addSeniorBtn">Add New Senior</button>
+            </div>
+            <div class="search-grid" style="margin-top: 0.75rem;">
+                <input id="searchInput" type="search" placeholder="Search by name, username, barangay, or status">
+                <select id="statusFilter">
+                    <option value="">All Status</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                    <option value="deceased">Deceased</option>
+                </select>
+                <button id="showAllBtn" class="secondary" type="button">Show Records</button>
+            </div>
+            <figure>
+                <table class="records-table">
+                    <thead>
+                        <tr>
+                            <th class="sortable" data-sort-key="id">ID <small>↕</small></th>
+                            <th class="sortable" data-sort-key="full_name">Full Name <small>↕</small></th>
+                            <th class="sortable" data-sort-key="username">Username <small>↕</small></th>
+                            <th class="sortable" data-sort-key="age">Age <small>↕</small></th>
+                            <th class="sortable" data-sort-key="barangay">Barangay <small>↕</small></th>
+                            <th class="sortable" data-sort-key="contact_number">Contact Number <small>↕</small></th>
+                            <th class="sortable" data-sort-key="status">Status <small>↕</small></th>
+                            <th class="sortable" data-sort-key="registration_date">Date Registered <small>↕</small></th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recordsBody"></tbody>
+                </table>
+            </figure>
+            <div class="pagination">
+                <button id="prevPageBtn" class="secondary">Previous</button>
+                <small id="pageInfo">Page 1 of 1</small>
+                <button id="nextPageBtn" class="secondary">Next</button>
+            </div>
+        </article>
+    </main>
+
+    <dialog id="seniorFormModal">
+        <article>
+            <header><strong id="formModalTitle">Add New Senior</strong></header>
+            <form id="seniorForm">
+                <input type="hidden" id="seniorId">
+                <div class="grid">
+                    <label>First Name<input id="firstName" required></label>
+                    <label>Middle Name<input id="middleName"></label>
+                    <label>Last Name<input id="lastName" required></label>
+                    <label>Suffix<input id="suffix"></label>
+                </div>
+                <div class="grid">
+                    <label>Username<input id="uniqueIdentifier" required></label>
+                    <label>Birth Date<input id="birthDate" type="date" required></label>
+                    <label>Age<input id="age" type="number" min="0"></label>
+                    <label>Sex
+                        <select id="sex">
+                            <option value="">N/A</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </label>
+                </div>
+                <label>Address<input id="address" required></label>
+                <div class="grid">
+                    <label>Barangay<input id="barangay"></label>
+                    <label>City/Municipality<input id="cityMunicipality"></label>
+                    <label>Contact Number<input id="contactNumber"></label>
+                    <label>Registration Date<input id="registrationDate" type="date"></label>
+                </div>
+                <div class="grid">
+                    <label>Vital Status
+                        <select id="vitalStatus">
+                            <option value="alive">Alive</option>
+                            <option value="deceased">Deceased</option>
+                        </select>
+                    </label>
+                    <label>Date of Death<input id="dateOfDeath" type="date"></label>
+                    <label>Active
+                        <select id="isActive">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </label>
+                    <label>Indigent
+                        <select id="isIndigent">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </label>
+                </div>
+                <label>Notes<textarea id="notes"></textarea></label>
+                <footer>
+                    <button type="button" class="secondary" id="closeFormModalBtn">Cancel</button>
+                    <button type="submit">Save</button>
+                </footer>
+            </form>
+        </article>
+    </dialog>
+
+    <dialog id="viewModal">
+        <article>
+            <header><strong>Senior Profile</strong></header>
+            <div id="viewContent"></div>
+            <footer><button type="button" id="closeViewModalBtn">Close</button></footer>
+        </article>
+    </dialog>
+
+    <div class="toast-wrap" id="toastWrap"></div>
+
+    <script>
+        const state = {
+            page: 1,
+            totalPages: 1,
+            query: '',
+            status: '',
+            pageSize: 20,
+            rows: [],
+            sortKey: 'id',
+            sortDir: 'asc'
+        };
+
+        function getApi() {
+            if (!window.pywebview || !window.pywebview.api) {
+                throw new Error('Backend API not available.');
+            }
+            return window.pywebview.api;
+        }
+
+        function getAuthUser() {
+            try {
+                const raw = localStorage.getItem('centenaryo_auth_state');
+                const parsed = raw ? JSON.parse(raw) : null;
+                if (parsed?.isAuthenticated && parsed?.user?.username) {
+                    return parsed.user.username;
+                }
+            } catch (error) {}
+            return null;
+        }
+
+        function openDialog(el) { el.showModal ? el.showModal() : el.setAttribute('open', 'open'); }
+        function closeDialog(el) { el.close ? el.close() : el.removeAttribute('open'); }
+
+        function showToast(message, type = 'success') {
+            const wrap = document.getElementById('toastWrap');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type === 'error' ? 'toast-error' : 'toast-success'}`;
+            toast.textContent = message;
+            wrap.appendChild(toast);
+            setTimeout(() => toast.remove(), 3200);
+        }
+
+        function statusBadge(status) {
+            const normalized = (status || '').toLowerCase();
+            const klass = normalized === 'deceased' ? 'status-deceased' : normalized === 'inactive' ? 'status-inactive' : 'status-active';
+            return `<span class="status-badge ${klass}">${status || 'Active'}</span>`;
+        }
+
+        async function loadRecords() {
+            const response = await getApi().senior_list({
+                query: state.query,
+                status: state.status,
+                page: state.page,
+                page_size: state.pageSize,
+                sort_key: state.sortKey,
+                sort_dir: state.sortDir
+            });
+            state.rows = response.seniors || [];
+            state.totalPages = response.pagination?.total_pages || 1;
+
+            const body = document.getElementById('recordsBody');
+            body.innerHTML = '';
+            if (!state.rows.length) {
+                body.innerHTML = '<tr><td colspan="9">No senior records found.</td></tr>';
+            } else {
+                state.rows.forEach((row) => {
+                    const tr = document.createElement('tr');
+                    tr.setAttribute('data-view', String(row.id));
+                    tr.innerHTML = `
+                        <td>${row.id}</td>
+                        <td>${row.full_name || '-'}</td>
+                        <td>${row.username || '-'}</td>
+                        <td>${row.age ?? '-'}</td>
+                        <td>${row.barangay || '-'}</td>
+                        <td>${row.contact_number || '-'}</td>
+                        <td>${statusBadge(row.status)}</td>
+                        <td>${row.registration_date || '-'}</td>
+                        <td>
+                            <button type="button" class="secondary" data-view-btn="${row.id}">View</button>
+                            <button type="button" data-edit-btn="${row.id}">Edit</button>
+                            <button type="button" class="contrast" data-delete-btn="${row.id}">Delete</button>
+                        </td>
+                    `;
+                    body.appendChild(tr);
+                });
+            }
+
+            document.getElementById('pageInfo').textContent = `Page ${state.page} of ${state.totalPages}`;
+            document.getElementById('prevPageBtn').disabled = state.page <= 1;
+            document.getElementById('nextPageBtn').disabled = state.page >= state.totalPages;
+        }
+
+        function fillForm(data = null) {
+            document.getElementById('formModalTitle').textContent = data ? 'Edit Senior' : 'Add New Senior';
+            document.getElementById('seniorId').value = data?.id || '';
+            document.getElementById('firstName').value = data?.first_name || '';
+            document.getElementById('middleName').value = data?.middle_name || '';
+            document.getElementById('lastName').value = data?.last_name || '';
+            document.getElementById('suffix').value = data?.suffix || '';
+            document.getElementById('uniqueIdentifier').value = data?.unique_identifier || '';
+            document.getElementById('birthDate').value = data?.birth_date || '';
+            document.getElementById('age').value = data?.age ?? '';
+            document.getElementById('sex').value = data?.sex || '';
+            document.getElementById('address').value = data?.address || '';
+            document.getElementById('barangay').value = data?.barangay || '';
+            document.getElementById('cityMunicipality').value = data?.city_municipality || '';
+            document.getElementById('contactNumber').value = data?.contact_number || '';
+            document.getElementById('registrationDate').value = data?.registration_date || '';
+            document.getElementById('vitalStatus').value = data?.vital_status || 'alive';
+            document.getElementById('dateOfDeath').value = data?.date_of_death || '';
+            document.getElementById('isActive').value = String(data?.is_active ?? 1);
+            document.getElementById('isIndigent').value = String(data?.is_indigent ?? 0);
+            document.getElementById('notes').value = data?.notes || '';
+        }
+
+        async function openViewModal(id) {
+            const response = await getApi().senior_get({ id });
+            if (!response.ok) {
+                showToast(response.error || 'Unable to load profile.', 'error');
+                return;
+            }
+            const senior = response.senior || {};
+            const content = Object.entries(senior).map(([k, v]) => `<p><strong>${k}:</strong> ${v ?? '-'}</p>`).join('');
+            document.getElementById('viewContent').innerHTML = content || '<p>No details available.</p>';
+            openDialog(document.getElementById('viewModal'));
+        }
+
+        function formPayload() {
+            return {
+                id: document.getElementById('seniorId').value ? Number(document.getElementById('seniorId').value) : null,
+                first_name: document.getElementById('firstName').value.trim(),
+                middle_name: document.getElementById('middleName').value.trim(),
+                last_name: document.getElementById('lastName').value.trim(),
+                suffix: document.getElementById('suffix').value.trim(),
+                unique_identifier: document.getElementById('uniqueIdentifier').value.trim(),
+                birth_date: document.getElementById('birthDate').value,
+                age: document.getElementById('age').value ? Number(document.getElementById('age').value) : null,
+                sex: document.getElementById('sex').value,
+                address: document.getElementById('address').value.trim(),
+                barangay: document.getElementById('barangay').value.trim(),
+                city_municipality: document.getElementById('cityMunicipality').value.trim(),
+                contact_number: document.getElementById('contactNumber').value.trim(),
+                registration_date: document.getElementById('registrationDate').value,
+                vital_status: document.getElementById('vitalStatus').value,
+                date_of_death: document.getElementById('dateOfDeath').value,
+                is_active: Number(document.getElementById('isActive').value),
+                is_indigent: Number(document.getElementById('isIndigent').value),
+                notes: document.getElementById('notes').value.trim()
+            };
+        }
+
+        let searchTimer = null;
+
+        window.addEventListener('DOMContentLoaded', async () => {
+            const username = getAuthUser();
+            if (!username) {
+                window.location.href = 'login.html';
+                return;
+            }
+            document.getElementById('topbarUser').textContent = `Welcome, ${username}`;
+
+            document.getElementById('logoutBtn').addEventListener('click', (event) => {
+                event.preventDefault();
+                localStorage.removeItem('centenaryo_auth_state');
+                localStorage.removeItem('centenaryo_auth');
+                sessionStorage.removeItem('centenaryo_auth');
+                window.location.href = 'login.html';
+            });
+
+            document.getElementById('addSeniorBtn').addEventListener('click', () => {
+                fillForm(null);
+                openDialog(document.getElementById('seniorFormModal'));
+            });
+            document.getElementById('closeFormModalBtn').addEventListener('click', () => closeDialog(document.getElementById('seniorFormModal')));
+            document.getElementById('closeViewModalBtn').addEventListener('click', () => closeDialog(document.getElementById('viewModal')));
+
+            document.getElementById('searchInput').addEventListener('input', (event) => {
+                clearTimeout(searchTimer);
+                searchTimer = setTimeout(async () => {
+                    state.query = event.target.value.trim();
+                    state.page = 1;
+                    await loadRecords();
+                }, 250);
+            });
+            document.getElementById('showAllBtn').addEventListener('click', async () => {
+                document.getElementById('searchInput').value = '';
+                document.getElementById('statusFilter').value = '';
+                state.query = '';
+                state.status = '';
+                state.page = 1;
+                await loadRecords();
+            });
+            document.getElementById('statusFilter').addEventListener('change', async (event) => {
+                state.status = event.target.value;
+                state.page = 1;
+                await loadRecords();
+            });
+            document.querySelectorAll('.sortable').forEach((head) => {
+                head.addEventListener('click', () => {
+                    const key = head.getAttribute('data-sort-key');
+                    if (state.sortKey === key) {
+                        state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
+                    } else {
+                        state.sortKey = key;
+                        state.sortDir = 'asc';
+                    }
+                    state.page = 1;
+                    loadRecords();
+                });
+            });
+
+            document.getElementById('prevPageBtn').addEventListener('click', async () => {
+                if (state.page > 1) {
+                    state.page -= 1;
+                    await loadRecords();
+                }
+            });
+            document.getElementById('nextPageBtn').addEventListener('click', async () => {
+                if (state.page < state.totalPages) {
+                    state.page += 1;
+                    await loadRecords();
+                }
+            });
+
+            document.getElementById('recordsBody').addEventListener('click', async (event) => {
+                const viewBtn = event.target.getAttribute('data-view-btn');
+                const editBtn = event.target.getAttribute('data-edit-btn');
+                const deleteBtn = event.target.getAttribute('data-delete-btn');
+                const rowView = event.target.closest('tr')?.getAttribute('data-view');
+
+                if (viewBtn) {
+                    await openViewModal(Number(viewBtn));
+                    return;
+                }
+                if (editBtn) {
+                    const response = await getApi().senior_get({ id: Number(editBtn) });
+                    if (!response.ok) {
+                        showToast(response.error || 'Unable to load senior record.', 'error');
+                        return;
+                    }
+                    fillForm(response.senior);
+                    openDialog(document.getElementById('seniorFormModal'));
+                    return;
+                }
+                if (deleteBtn) {
+                    const confirmed = window.confirm('Delete this senior record?');
+                    if (!confirmed) return;
+                    const response = await getApi().senior_delete({ id: Number(deleteBtn) });
+                    showToast(response.message || response.error || 'Done', response.ok ? 'success' : 'error');
+                    if (response.ok) await loadRecords();
+                    return;
+                }
+                if (rowView) {
+                    await openViewModal(Number(rowView));
+                }
+            });
+
+            document.getElementById('seniorForm').addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const payload = formPayload();
+                const response = payload.id
+                    ? await getApi().senior_update(payload)
+                    : await getApi().senior_create(payload);
+                showToast(response.message || response.error || 'Done', response.ok ? 'success' : 'error');
+                if (response.ok) {
+                    closeDialog(document.getElementById('seniorFormModal'));
+                    await loadRecords();
+                }
+            });
+
+            await loadRecords();
+        });
+    </script>
+</body>
+</html>
