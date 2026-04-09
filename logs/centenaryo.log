@@ -1092,7 +1092,10 @@ sqlite3.OperationalError: no such column: updated_at
 2026-04-06 23:36:10,431 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:16251/register.html
 2026-04-06 23:36:35,282 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:16251/login.html
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/khiro
 2026-04-07 00:01:19,700 - __main__ - INFO - Application shutdown complete
 2026-04-07 00:02:05,728 - __main__ - INFO - Starting CENTENARYO application...
 2026-04-07 00:02:05,730 - __main__ - INFO - Mode: Development
@@ -1119,6 +1122,7 @@ sqlite3.OperationalError: no such column: updated_at
 2026-04-07 00:09:06,855 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
 2026-04-07 00:09:12,432 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:11483/login.html
 2026-04-07 00:09:21,032 - __main__ - INFO - Application shutdown complete
+<<<<<<< HEAD
 >>>>>>> origin/khiro
 2026-04-09 19:33:02,145 - __main__ - INFO - Database mode: CLOUD (team sync)
 2026-04-09 19:33:03,325 - __main__ - INFO - Starting CENTENARYO application...
@@ -1166,3 +1170,371 @@ sqlite3.OperationalError: no such column: updated_at
 2026-04-09 19:50:31,636 - __main__ - INFO - Window created: 1000x700 at position (268, 82)
 2026-04-09 19:50:38,591 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:57563/login.html
 2026-04-09 20:27:40,820 - __main__ - INFO - Application shutdown complete
+=======
+=======
+>>>>>>> origin/main
+2026-04-07 00:10:49,384 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-07 00:10:49,385 - __main__ - INFO - Mode: Development
+2026-04-07 00:10:49,385 - __main__ - INFO - API bridge initialized successfully
+2026-04-07 00:10:49,473 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
+2026-04-07 00:11:24,708 - __main__ - INFO - Application shutdown complete
+2026-04-07 00:11:26,834 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-07 00:11:26,835 - __main__ - INFO - Mode: Development
+2026-04-07 00:11:26,835 - __main__ - INFO - API bridge initialized successfully
+2026-04-07 00:11:26,920 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
+2026-04-07 00:11:37,845 - __main__ - INFO - Application shutdown complete
+2026-04-07 00:15:22,746 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-07 00:15:22,746 - __main__ - INFO - Mode: Development
+2026-04-07 00:15:22,746 - __main__ - INFO - API bridge initialized successfully
+2026-04-07 00:15:22,832 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
+2026-04-07 00:15:28,639 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:11775/login.html
+2026-04-07 00:15:39,792 - __main__ - INFO - Application shutdown complete
+2026-04-07 00:17:48,020 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-07 00:17:48,020 - __main__ - INFO - Mode: Development
+2026-04-07 00:17:48,020 - __main__ - INFO - API bridge initialized successfully
+2026-04-07 00:17:48,107 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
+2026-04-07 00:17:53,633 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:55690/login.html
+2026-04-07 00:18:08,584 - __main__ - INFO - Application shutdown complete
+2026-04-07 00:18:15,400 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-07 00:18:15,400 - __main__ - INFO - Mode: Development
+2026-04-07 00:18:15,401 - __main__ - INFO - API bridge initialized successfully
+2026-04-07 00:18:15,488 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
+2026-04-07 00:18:21,181 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:62791/login.html
+2026-04-07 00:18:36,147 - __main__ - INFO - Application shutdown complete
+2026-04-07 00:19:48,190 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-07 00:19:48,190 - __main__ - INFO - Mode: Development
+2026-04-07 00:19:48,190 - __main__ - INFO - API bridge initialized successfully
+2026-04-07 00:19:48,275 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
+2026-04-07 00:19:55,594 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:55031/login.html
+2026-04-07 00:20:37,494 - __main__ - INFO - Application shutdown complete
+2026-04-09 18:31:52,008 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-09 18:31:52,008 - __main__ - INFO - Mode: Development
+2026-04-09 18:31:52,008 - __main__ - INFO - API bridge initialized successfully
+2026-04-09 18:31:52,495 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
+2026-04-09 18:31:59,928 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:29085/login.html
+2026-04-09 18:32:21,198 - __main__ - INFO - Application shutdown complete
+2026-04-09 19:39:01,789 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-09 19:39:01,789 - __main__ - INFO - Mode: Development
+2026-04-09 19:39:01,790 - __main__ - INFO - API bridge initialized successfully
+2026-04-09 19:39:02,330 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
+2026-04-09 19:39:08,371 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:18674/login.html
+2026-04-09 19:39:30,170 - pywebview - ERROR - Traceback (most recent call last):
+  File "C:\Users\kazum\AppData\Local\Programs\Python\Python313\Lib\site-packages\webview\util.py", line 254, in _call
+    result = func(*func_params)
+  File "D:\codes\CENTENARYO\main.py", line 159, in inventory_search_seniors
+    return app._inventory_search_seniors(payload)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\codes\CENTENARYO\main.py", line 236, in _inventory_search_seniors
+    return self.inventory_service.search_seniors(query=query)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\codes\CENTENARYO\backend\services\inventory_service.py", line 203, in search_seniors
+    rows = conn.execute(
+           ~~~~~~~~~~~~^
+        f"""
+        ^^^^
+    ...<6 lines>...
+        params,
+        ^^^^^^^
+    ).fetchall()
+    ^
+sqlite3.OperationalError: no such column: username
+
+2026-04-09 19:39:32,379 - pywebview - ERROR - Traceback (most recent call last):
+  File "C:\Users\kazum\AppData\Local\Programs\Python\Python313\Lib\site-packages\webview\util.py", line 254, in _call
+    result = func(*func_params)
+  File "D:\codes\CENTENARYO\main.py", line 159, in inventory_search_seniors
+    return app._inventory_search_seniors(payload)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\codes\CENTENARYO\main.py", line 236, in _inventory_search_seniors
+    return self.inventory_service.search_seniors(query=query)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\codes\CENTENARYO\backend\services\inventory_service.py", line 214, in search_seniors
+    rows = conn.execute(
+           ~~~~~~~~~~~~^
+        f"""
+        ^^^^
+    ...<4 lines>...
+        """
+        ^^^
+    ).fetchall()
+    ^
+sqlite3.OperationalError: no such column: username
+
+2026-04-09 19:39:32,583 - pywebview - ERROR - Traceback (most recent call last):
+  File "C:\Users\kazum\AppData\Local\Programs\Python\Python313\Lib\site-packages\webview\util.py", line 254, in _call
+    result = func(*func_params)
+  File "D:\codes\CENTENARYO\main.py", line 159, in inventory_search_seniors
+    return app._inventory_search_seniors(payload)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\codes\CENTENARYO\main.py", line 236, in _inventory_search_seniors
+    return self.inventory_service.search_seniors(query=query)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\codes\CENTENARYO\backend\services\inventory_service.py", line 203, in search_seniors
+    rows = conn.execute(
+           ~~~~~~~~~~~~^
+        f"""
+        ^^^^
+    ...<6 lines>...
+        params,
+        ^^^^^^^
+    ).fetchall()
+    ^
+sqlite3.OperationalError: no such column: username
+
+2026-04-09 19:39:33,108 - pywebview - ERROR - Traceback (most recent call last):
+  File "C:\Users\kazum\AppData\Local\Programs\Python\Python313\Lib\site-packages\webview\util.py", line 254, in _call
+    result = func(*func_params)
+  File "D:\codes\CENTENARYO\main.py", line 159, in inventory_search_seniors
+    return app._inventory_search_seniors(payload)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\codes\CENTENARYO\main.py", line 236, in _inventory_search_seniors
+    return self.inventory_service.search_seniors(query=query)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\codes\CENTENARYO\backend\services\inventory_service.py", line 214, in search_seniors
+    rows = conn.execute(
+           ~~~~~~~~~~~~^
+        f"""
+        ^^^^
+    ...<4 lines>...
+        """
+        ^^^
+    ).fetchall()
+    ^
+sqlite3.OperationalError: no such column: username
+
+2026-04-09 19:41:41,345 - pywebview - ERROR - Traceback (most recent call last):
+  File "C:\Users\kazum\AppData\Local\Programs\Python\Python313\Lib\site-packages\webview\util.py", line 254, in _call
+    result = func(*func_params)
+  File "D:\codes\CENTENARYO\main.py", line 159, in inventory_search_seniors
+    return app._inventory_search_seniors(payload)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\codes\CENTENARYO\main.py", line 236, in _inventory_search_seniors
+    return self.inventory_service.search_seniors(query=query)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\codes\CENTENARYO\backend\services\inventory_service.py", line 214, in search_seniors
+    rows = conn.execute(
+           ~~~~~~~~~~~~^
+        f"""
+        ^^^^
+    ...<4 lines>...
+        """
+        ^^^
+    ).fetchall()
+    ^
+sqlite3.OperationalError: no such column: username
+
+2026-04-09 19:41:41,345 - pywebview - ERROR - Traceback (most recent call last):
+  File "C:\Users\kazum\AppData\Local\Programs\Python\Python313\Lib\site-packages\webview\util.py", line 254, in _call
+    result = func(*func_params)
+  File "D:\codes\CENTENARYO\main.py", line 168, in inventory_history
+    return app._inventory_history(payload)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\codes\CENTENARYO\main.py", line 245, in _inventory_history
+    return self.inventory_service.get_history(limit=payload.get('limit', 20))
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\codes\CENTENARYO\backend\services\inventory_service.py", line 306, in get_history
+    rows = conn.execute(
+           ~~~~~~~~~~~~^
+        f"""
+        ^^^^
+    ...<15 lines>...
+        (resolved_limit,),
+        ^^^^^^^^^^^^^^^^^^
+    ).fetchall()
+    ^
+sqlite3.OperationalError: no such column: sc.username
+
+2026-04-09 19:41:45,111 - pywebview - ERROR - Traceback (most recent call last):
+  File "C:\Users\kazum\AppData\Local\Programs\Python\Python313\Lib\site-packages\webview\util.py", line 254, in _call
+    result = func(*func_params)
+  File "D:\codes\CENTENARYO\main.py", line 159, in inventory_search_seniors
+    return app._inventory_search_seniors(payload)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\codes\CENTENARYO\main.py", line 236, in _inventory_search_seniors
+    return self.inventory_service.search_seniors(query=query)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\codes\CENTENARYO\backend\services\inventory_service.py", line 214, in search_seniors
+    rows = conn.execute(
+           ~~~~~~~~~~~~^
+        f"""
+        ^^^^
+    ...<4 lines>...
+        """
+        ^^^
+    ).fetchall()
+    ^
+sqlite3.OperationalError: no such column: username
+
+2026-04-09 19:41:45,112 - pywebview - ERROR - Traceback (most recent call last):
+  File "C:\Users\kazum\AppData\Local\Programs\Python\Python313\Lib\site-packages\webview\util.py", line 254, in _call
+    result = func(*func_params)
+  File "D:\codes\CENTENARYO\main.py", line 168, in inventory_history
+    return app._inventory_history(payload)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\codes\CENTENARYO\main.py", line 245, in _inventory_history
+    return self.inventory_service.get_history(limit=payload.get('limit', 20))
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\codes\CENTENARYO\backend\services\inventory_service.py", line 306, in get_history
+    rows = conn.execute(
+           ~~~~~~~~~~~~^
+        f"""
+        ^^^^
+    ...<15 lines>...
+        (resolved_limit,),
+        ^^^^^^^^^^^^^^^^^^
+    ).fetchall()
+    ^
+sqlite3.OperationalError: no such column: sc.username
+
+2026-04-09 19:41:47,185 - pywebview - ERROR - Traceback (most recent call last):
+  File "C:\Users\kazum\AppData\Local\Programs\Python\Python313\Lib\site-packages\webview\util.py", line 254, in _call
+    result = func(*func_params)
+  File "D:\codes\CENTENARYO\main.py", line 159, in inventory_search_seniors
+    return app._inventory_search_seniors(payload)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\codes\CENTENARYO\main.py", line 236, in _inventory_search_seniors
+    return self.inventory_service.search_seniors(query=query)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\codes\CENTENARYO\backend\services\inventory_service.py", line 203, in search_seniors
+    rows = conn.execute(
+           ~~~~~~~~~~~~^
+        f"""
+        ^^^^
+    ...<6 lines>...
+        params,
+        ^^^^^^^
+    ).fetchall()
+    ^
+sqlite3.OperationalError: no such column: username
+
+2026-04-09 19:41:47,237 - pywebview - ERROR - Traceback (most recent call last):
+  File "C:\Users\kazum\AppData\Local\Programs\Python\Python313\Lib\site-packages\webview\util.py", line 254, in _call
+    result = func(*func_params)
+  File "D:\codes\CENTENARYO\main.py", line 159, in inventory_search_seniors
+    return app._inventory_search_seniors(payload)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\codes\CENTENARYO\main.py", line 236, in _inventory_search_seniors
+    return self.inventory_service.search_seniors(query=query)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\codes\CENTENARYO\backend\services\inventory_service.py", line 203, in search_seniors
+    rows = conn.execute(
+           ~~~~~~~~~~~~^
+        f"""
+        ^^^^
+    ...<6 lines>...
+        params,
+        ^^^^^^^
+    ).fetchall()
+    ^
+sqlite3.OperationalError: no such column: username
+
+2026-04-09 19:41:47,350 - pywebview - ERROR - Traceback (most recent call last):
+  File "C:\Users\kazum\AppData\Local\Programs\Python\Python313\Lib\site-packages\webview\util.py", line 254, in _call
+    result = func(*func_params)
+  File "D:\codes\CENTENARYO\main.py", line 159, in inventory_search_seniors
+    return app._inventory_search_seniors(payload)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\codes\CENTENARYO\main.py", line 236, in _inventory_search_seniors
+    return self.inventory_service.search_seniors(query=query)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\codes\CENTENARYO\backend\services\inventory_service.py", line 203, in search_seniors
+    rows = conn.execute(
+           ~~~~~~~~~~~~^
+        f"""
+        ^^^^
+    ...<6 lines>...
+        params,
+        ^^^^^^^
+    ).fetchall()
+    ^
+sqlite3.OperationalError: no such column: username
+
+2026-04-09 19:41:48,162 - pywebview - ERROR - Traceback (most recent call last):
+  File "C:\Users\kazum\AppData\Local\Programs\Python\Python313\Lib\site-packages\webview\util.py", line 254, in _call
+    result = func(*func_params)
+  File "D:\codes\CENTENARYO\main.py", line 159, in inventory_search_seniors
+    return app._inventory_search_seniors(payload)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\codes\CENTENARYO\main.py", line 236, in _inventory_search_seniors
+    return self.inventory_service.search_seniors(query=query)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\codes\CENTENARYO\backend\services\inventory_service.py", line 214, in search_seniors
+    rows = conn.execute(
+           ~~~~~~~~~~~~^
+        f"""
+        ^^^^
+    ...<4 lines>...
+        """
+        ^^^
+    ).fetchall()
+    ^
+sqlite3.OperationalError: no such column: username
+
+2026-04-09 19:45:26,571 - pywebview - ERROR - Traceback (most recent call last):
+  File "C:\Users\kazum\AppData\Local\Programs\Python\Python313\Lib\site-packages\webview\util.py", line 254, in _call
+    result = func(*func_params)
+  File "D:\codes\CENTENARYO\main.py", line 159, in inventory_search_seniors
+    return app._inventory_search_seniors(payload)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\codes\CENTENARYO\main.py", line 236, in _inventory_search_seniors
+    return self.inventory_service.search_seniors(query=query)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\codes\CENTENARYO\backend\services\inventory_service.py", line 214, in search_seniors
+    rows = conn.execute(
+           ~~~~~~~~~~~~^
+        f"""
+        ^^^^
+    ...<4 lines>...
+        """
+        ^^^
+    ).fetchall()
+    ^
+sqlite3.OperationalError: no such column: username
+
+2026-04-09 19:45:26,572 - pywebview - ERROR - Traceback (most recent call last):
+  File "C:\Users\kazum\AppData\Local\Programs\Python\Python313\Lib\site-packages\webview\util.py", line 254, in _call
+    result = func(*func_params)
+  File "D:\codes\CENTENARYO\main.py", line 168, in inventory_history
+    return app._inventory_history(payload)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\codes\CENTENARYO\main.py", line 245, in _inventory_history
+    return self.inventory_service.get_history(limit=payload.get('limit', 20))
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\codes\CENTENARYO\backend\services\inventory_service.py", line 306, in get_history
+    rows = conn.execute(
+           ~~~~~~~~~~~~^
+        f"""
+        ^^^^
+    ...<15 lines>...
+        (resolved_limit,),
+        ^^^^^^^^^^^^^^^^^^
+    ).fetchall()
+    ^
+sqlite3.OperationalError: no such column: sc.username
+
+2026-04-09 19:54:27,999 - __main__ - INFO - Application shutdown complete
+2026-04-09 19:58:49,018 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-09 19:58:49,019 - __main__ - INFO - Mode: Development
+2026-04-09 19:58:49,019 - __main__ - INFO - API bridge initialized successfully
+2026-04-09 19:58:49,098 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
+2026-04-09 19:58:55,133 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:53933/login.html
+2026-04-09 20:09:36,588 - __main__ - INFO - Application shutdown complete
+2026-04-09 20:09:39,534 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-09 20:09:39,534 - __main__ - INFO - Mode: Development
+2026-04-09 20:09:39,534 - __main__ - INFO - API bridge initialized successfully
+2026-04-09 20:09:39,604 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
+2026-04-09 20:09:45,119 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:43093/login.html
+2026-04-09 20:17:16,444 - __main__ - INFO - Application shutdown complete
+2026-04-09 20:17:18,670 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-09 20:17:18,670 - __main__ - INFO - Mode: Development
+2026-04-09 20:17:18,671 - __main__ - INFO - API bridge initialized successfully
+2026-04-09 20:17:18,741 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
+2026-04-09 20:17:24,452 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:4688/login.html
+2026-04-09 20:25:40,186 - __main__ - INFO - Application shutdown complete
+2026-04-09 20:25:44,214 - __main__ - INFO - Starting CENTENARYO application...
+2026-04-09 20:25:44,215 - __main__ - INFO - Mode: Development
+2026-04-09 20:25:44,215 - __main__ - INFO - API bridge initialized successfully
+2026-04-09 20:25:44,282 - __main__ - INFO - Window created: 1000x700 at position (460, 190)
+2026-04-09 20:25:49,707 - __main__ - INFO - Frontend: Navigation: Navigate to http://127.0.0.1:49274/login.html
+2026-04-09 20:27:48,832 - __main__ - INFO - Application shutdown complete
+>>>>>>> origin/khiro

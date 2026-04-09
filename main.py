@@ -33,6 +33,8 @@ import tkinter as tk
 from backend.database import DatabaseManager
 from backend.services.login import LoginService
 from backend.services.registration import RegistrationService
+from backend.services.inventory_service import InventoryService
+from backend.services.senior_service import SeniorService
 
 # Configure logging
 logging.basicConfig(
@@ -59,6 +61,8 @@ class CentenaryoApp:
         self.database = DatabaseManager()
         self.login_service = LoginService(self.database)
         self.registration_service = RegistrationService(self.database)
+        self.inventory_service = InventoryService(self.database)
+        self.senior_service = SeniorService(self.database)
         
         # Ensure required directories exist
         self._ensure_directories()
@@ -146,6 +150,45 @@ class CentenaryoApp:
             
             def get_session(self, payload: Dict[str, Any]) -> Dict[str, Any]:
                 return app._get_session(payload)
+
+            def inventory_list_items(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+                return app._inventory_list_items(payload)
+
+            def inventory_create_item(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+                return app._inventory_create_item(payload)
+
+            def inventory_update_item(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+                return app._inventory_update_item(payload)
+
+            def inventory_delete_item(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+                return app._inventory_delete_item(payload)
+
+            def inventory_search_seniors(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+                return app._inventory_search_seniors(payload)
+
+            def inventory_get_senior_profile(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+                return app._inventory_get_senior_profile(payload)
+
+            def inventory_issue_booklet(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+                return app._inventory_issue_booklet(payload)
+
+            def inventory_history(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+                return app._inventory_history(payload)
+
+            def senior_list(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+                return app._senior_list(payload)
+
+            def senior_get(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+                return app._senior_get(payload)
+
+            def senior_create(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+                return app._senior_create(payload)
+
+            def senior_update(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+                return app._senior_update(payload)
+
+            def senior_delete(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+                return app._senior_delete(payload)
         
         try:
             api_bridge = APIBridge()
@@ -197,6 +240,54 @@ class CentenaryoApp:
     def _get_session(self, payload: Dict[str, Any]) -> Dict[str, Any]:
         token = str(payload.get('token', ''))
         return self.login_service.get_session(token)
+
+    def _inventory_list_items(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        search = str(payload.get('search', ''))
+        return self.inventory_service.list_items(search=search)
+
+    def _inventory_create_item(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        return self.inventory_service.create_item(payload)
+
+    def _inventory_update_item(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        return self.inventory_service.update_item(payload)
+
+    def _inventory_delete_item(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        return self.inventory_service.delete_item(payload.get('id'))
+
+    def _inventory_search_seniors(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        query = str(payload.get('query', ''))
+        return self.inventory_service.search_seniors(query=query)
+
+    def _inventory_get_senior_profile(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        return self.inventory_service.get_senior_profile(payload.get('senior_id'))
+
+    def _inventory_issue_booklet(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        return self.inventory_service.issue_booklet(payload)
+
+    def _inventory_history(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        return self.inventory_service.get_history(limit=payload.get('limit', 20))
+
+    def _senior_list(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        return self.senior_service.list_seniors(
+            query=str(payload.get('query', '')),
+            status=str(payload.get('status', '')),
+            page=payload.get('page', 1),
+            page_size=payload.get('page_size', 20),
+            sort_key=str(payload.get('sort_key', 'id')),
+            sort_dir=str(payload.get('sort_dir', 'asc')),
+        )
+
+    def _senior_get(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        return self.senior_service.get_senior(payload.get('id'))
+
+    def _senior_create(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        return self.senior_service.create_senior(payload)
+
+    def _senior_update(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        return self.senior_service.update_senior(payload)
+
+    def _senior_delete(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        return self.senior_service.delete_senior(payload.get('id'))
     
     def _get_version(self) -> Dict[str, str]:
         """Get application version information"""
